@@ -1,8 +1,10 @@
 # Grupo
 
-Nombre: **COMPLETAR ACA**
+Nombre: ID: 137
 
 Integrantes: **COMPLETAR ACA**
+
+Juego: Inscryption 
 
 # Consigna TP Integrador
 
