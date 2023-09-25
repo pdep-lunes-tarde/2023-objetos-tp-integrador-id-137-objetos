@@ -1,5 +1,6 @@
 import tp.*
 
+//hay que hacer los test
 test "Test de ejemplo" {
 		assert.equals(4, 2 + 2)
 }

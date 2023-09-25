@@ -1,6 +1,7 @@
-import puntaje.*
-import cartas.*
 import wollok.game.*
+import tp.*
+import objetos.*
+import cartas.*
 
 object mano {
 	const cartas = new List()
@@ -21,7 +22,13 @@ object mano {
 		}
 	}
 	
-	method bajarCartaSeleccionada(espacio){
+	/*Necesitamos un método "elegir" que determine cuándo dejamos de seleccionar una carta
+	  y pasamos a decidir en qué espacio bajarla 
+	  
+	method elegir(){}
+	*/
+	
+	method bajarCartaElegida(espacio){
 		if(espacio.contiene() == vidaJugador){
 			espacio.ponerCarta(seleccion)
 			game.addVisual(espacio)
@@ -37,6 +44,8 @@ object mano {
 		} else seleccion = nada
 	}
 	
+	
+	//hay que implementar el mazo
 	method robar(carta){
 		cartas.add(carta)
 		self.nuevaSeleccion()
@@ -46,6 +55,9 @@ object mano {
 	
 }
 
+/*Acá definimos los 8 espacios principales en los que se juega. No están modelados los espacios
+  donde la máquina debería dejar preparadas cartas para bajar*/ 
+ 
 class Espacio{
 	const x
 	const y
@@ -54,7 +66,7 @@ class Espacio{
 	var contiene = protege
 	
 	method ponerCarta(carta){
-		contiene = carta
+		contiene = carta 
 		carta.cambiarObjetivo(opuesto)
 	}
 	
@@ -66,13 +78,12 @@ class Espacio{
 		contiene.recibirDanio(cantidad)
 	}
 	
-	method position() {
-		return game.origin().right(x).up(y)
-	}
-	method image() {
-		return contiene.image()
+	method atacar(){
+		contiene.atacar()
 	}
 	
+	method position() = game.at(x,y)
+	method image() = contiene.image()
 	method contiene() = contiene
 	method opuesto() = opuesto	
 }

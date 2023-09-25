@@ -1,3 +1,5 @@
+import tp.*
+
 class Carta {
 	var objetivo = nada
 	var fuerza
@@ -19,10 +21,8 @@ class Carta {
 	method image() = image
 }
 
-object nada{
-	method recibirDanio(_){}
-	method ponerCarta(){}
-}
+/*vamos a necesitar un objeto que cree cartas con atributos en vez de definilas directamente,
+  así podemos evitar que cuando una carta reciba daño *todas* las cartas iguales reciban daño*/
 
 //cartas para probar 
 const carta1 = new Carta(fuerza = 1, salud = 3, image = "carta1.png")

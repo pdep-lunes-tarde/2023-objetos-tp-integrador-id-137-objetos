@@ -1,26 +1,51 @@
 import wollok.game.*
-import puntaje.*
+import objetos.*
 import cartas.*
 import zonas.*
+import fases.*
 
-object tpIntegrador {
+object juego{
+	var fase
+	
 	method jugar() {
+		self.iniciarMesa()
+		
+		keyboard.space().onPressDo {fase.espacio()} 
+		keyboard.right().onPressDo {fase.derecha()}
+		keyboard.left().onPressDo {fase.izquierda()}
+		
+		//provisional------------
+		fase = seleccionarCarta
+		mano.robar(carta1)
+		mano.robar(carta2)
+		mano.robar(carta3)
+		//-----------------------
+		
+		game.start()
+	}
+	
+	method iniciarMesa(){
 		game.width(33)
 		game.height(17)
 		game.cellSize(50)
-		game.addVisual(aniadirBorde)
-		//game.addVisual(entrenadorDisplay)
-		//game.addVisual(pajaroDisplay)
-		//game.addVisual(informacionDelPajaro)
-		game.start()
+		game.addVisual(borde)
 	}
 }
 
-object aniadirBorde {
+//el borde está para ir definiendo qué espacio va a tener la mesa y qué espacio la mano, el mazo y la info
+object borde {
 	method position() {
-		return game.origin().right(15)
+		return game.at(15,0)
 	}
 	method image() {
 		return "borde.png"
 	}
+}
+
+
+//Este amigo va a encargarse de recibir casi todos los mensajes que no deberían tener efecto ni respuesta 
+object nada{
+	method recibirDanio(_){}
+	method ponerCarta(){}
+	method cambiarObjectivo(_){}
 }
