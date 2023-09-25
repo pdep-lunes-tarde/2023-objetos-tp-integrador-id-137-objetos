@@ -44,9 +44,9 @@ object selectorDeEspacio{
 	}
 	
 	method anterior(){
-		if(posicionSeleccion > 0){
-			posicionSeleccion--
-			self.nuevaSeleccion()
+		if(posicionSeleccion > 0){					//Intentar separar la lógica de efectos de la visual
+			posicionSeleccion--						//en los selectores, para eventualmente poder eliminar
+			self.nuevaSeleccion()					//lógica repetida 
 		} else{}
 	}
 	

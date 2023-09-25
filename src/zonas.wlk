@@ -93,6 +93,7 @@ class Espacio{
 	method opuesto() = opuesto	
 }
 
+//falta modelar los espacios espaciales de las cartas que va a bajar la máquina (c)
 const a1 = new Espacio (protege = vidaJugador, opuesto = b1, x = 17, y = 1)
 const a2 = new Espacio (protege = vidaJugador, opuesto = b2, x = 21, y = 1)
 const a3 = new Espacio (protege = vidaJugador, opuesto = b3, x = 25, y = 1)

@@ -46,10 +46,9 @@ object borde {
 	}
 }
 
-
 //Este amigo va a encargarse de recibir casi todos los mensajes que no deberían tener efecto ni respuesta 
 object nada{
-	method recibirDanio(_){}
+	method recibirDanio(valor){}
 	method ponerCarta(){}
 	method cambiarObjectivo(objetivo){}
 }
