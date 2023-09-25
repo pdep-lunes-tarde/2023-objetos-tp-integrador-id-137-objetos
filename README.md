@@ -2,7 +2,11 @@
 
 Nombre: ID: 137
 
-Integrantes: **COMPLETAR ACA**
+Integrantes: 
+
+-Brea, Facundo
+-Feo Freling, Joel
+-Gassmann, Stefano Alejandro 
 
 Juego: Inscryption 
 
@@ -37,3 +41,8 @@ b) Tomar alguna clase definida en su programa y justificar por qué es una clase
 
 c) De haber algún objeto definido con `object`, justificar por qué.
 
+1. 
+
+2. Las cartas fueron defininidas en una clase ("Carta"), ya que va a ser necesario que sean muchas y todas tienen un comportamineto prácticamente idéntico. De ser definidas cada una como un 'object', crearlas sería tedioso y repetiría un montón de lógica.
+   
+3. La mano es un objeto, ya que es una zona de juego única su comportamiento es tolmente distinto al del resto de objetos 
