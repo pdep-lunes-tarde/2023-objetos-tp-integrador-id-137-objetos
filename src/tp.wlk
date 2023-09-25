@@ -30,6 +30,10 @@ object juego{
 		game.cellSize(50)
 		game.addVisual(borde)
 	}
+	
+	method cambiarFase(_fase){
+		fase = _fase
+	}
 }
 
 //el borde está para ir definiendo qué espacio va a tener la mesa y qué espacio la mano, el mazo y la info
@@ -47,5 +51,5 @@ object borde {
 object nada{
 	method recibirDanio(_){}
 	method ponerCarta(){}
-	method cambiarObjectivo(_){}
+	method cambiarObjectivo(objetivo){}
 }

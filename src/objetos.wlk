@@ -1,4 +1,8 @@
 import zonas.*
+import fases.*
+import cartas.*
+import tp.*
+import wollok.game.*
 
 //-------------------------------------------------------
 class Puntaje{
@@ -36,14 +40,14 @@ object selectorDeEspacio{
 		if(posicionSeleccion < 3){
 			posicionSeleccion++
 			self.nuevaSeleccion()
-		}
+		} else{}
 	}
 	
 	method anterior(){
-			posicionSeleccion++
 		if(posicionSeleccion > 0){
+			posicionSeleccion--
 			self.nuevaSeleccion()
-		}
+		} else{}
 	}
 	
 	method nuevaSeleccion(){
@@ -52,6 +56,7 @@ object selectorDeEspacio{
 	
 	method elegir(){
 		mano.bajarCartaElegida(seleccion)
+		juego.cambiarFase(seleccionarCarta)
 		self.finalizar()
 	}
 	
@@ -60,5 +65,7 @@ object selectorDeEspacio{
 		posicionSeleccion = 0
 	}
 	method finalizar(){}
+	
+	method posicion() = posicionSeleccion
 }
 //-------------------------------------------------------

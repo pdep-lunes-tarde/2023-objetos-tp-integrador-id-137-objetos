@@ -2,6 +2,7 @@ import wollok.game.*
 import tp.*
 import objetos.*
 import cartas.*
+import fases.*
 
 object mano {
 	const cartas = new List()
@@ -24,13 +25,17 @@ object mano {
 	
 	/*Necesitamos un método "elegir" que determine cuándo dejamos de seleccionar una carta
 	  y pasamos a decidir en qué espacio bajarla 
-	  
-	method elegir(){}
 	*/
+	  
+	method elegir(){
+		juego.cambiarFase(seleccionarEspacio)
+		selectorDeEspacio.iniciar()
+	}
+	
 	
 	method bajarCartaElegida(espacio){
 		if(espacio.contiene() == vidaJugador){
-			espacio.ponerCarta(seleccion)
+			espacio.ponerCarta(seleccion) //tira este error pero funciona hm
 			game.addVisual(espacio)
 			cartas.remove(seleccion)
 			posicionSeleccion = 0

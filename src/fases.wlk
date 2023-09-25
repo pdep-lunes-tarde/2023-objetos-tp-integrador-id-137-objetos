@@ -16,24 +16,23 @@ object seleccionarCarta {
 	}
 	
 	method espacio(){
-		mano.bajarCartaElegida(a1)
+		mano.elegir()
 		//debería ser mano.elegir()
 	}
 }
 //--------------------------------------
 
-/*--------------------------------------
 object seleccionarEspacio{				
-	method izquierda(){					
+	method derecha(){					
 		selectorDeEspacio.siguiente()	
 	}
 	
-	method derecha(){
+	method izquierda(){
 		selectorDeEspacio.anterior()
 	}
 	
 	method espacio(){
 		selectorDeEspacio.elegir()
 	}
-}*/
+}
 //--------------------------------------
