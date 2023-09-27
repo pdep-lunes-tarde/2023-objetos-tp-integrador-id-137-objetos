@@ -3,6 +3,7 @@ import objetos.*
 import cartas.*
 import zonas.*
 import fases.*
+import visuales.*
 
 object juego{
 	var fase
@@ -13,6 +14,8 @@ object juego{
 		keyboard.space().onPressDo {fase.espacio()} 
 		keyboard.right().onPressDo {fase.derecha()}
 		keyboard.left().onPressDo {fase.izquierda()}
+		keyboard.up().onPressDo {fase.arriba()}
+		keyboard.down().onPressDo {fase.abajo()}
 		
 		//provisional------------
 		fase = seleccionarCarta
@@ -34,21 +37,4 @@ object juego{
 	method cambiarFase(_fase){
 		fase = _fase
 	}
-}
-
-//el borde está para ir definiendo qué espacio va a tener la mesa y qué espacio la mano, el mazo y la info
-object borde {
-	method position() {
-		return game.at(15,0)
-	}
-	method image() {
-		return "borde.png"
-	}
-}
-
-//Este amigo va a encargarse de recibir casi todos los mensajes que no deberían tener efecto ni respuesta 
-object nada{
-	method recibirDanio(valor){}
-	method ponerCarta(){}
-	method cambiarObjectivo(objetivo){}
 }

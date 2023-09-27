@@ -15,10 +15,15 @@ object seleccionarCarta {
 		mano.cartaSiguiente()
 	}
 	
-	method espacio(){
+	method arriba(){
 		mano.elegir()
 		//debería ser mano.elegir()
 	}
+	
+	method espacio(){}
+	
+	method abajo(){}
+	
 }
 //--------------------------------------
 
@@ -31,8 +36,12 @@ object seleccionarEspacio{
 		selectorDeEspacio.anterior()
 	}
 	
-	method espacio(){
+	method arriba(){
 		selectorDeEspacio.elegir()
 	}
+	
+	method espacio(){}
+	
+	method abajo(){}
 }
 //--------------------------------------

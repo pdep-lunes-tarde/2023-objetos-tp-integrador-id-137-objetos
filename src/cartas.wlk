@@ -1,4 +1,5 @@
 import tp.*
+import objetos.*
 
 class Carta {
 	var objetivo = nada

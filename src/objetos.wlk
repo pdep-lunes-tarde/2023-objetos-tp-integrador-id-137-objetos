@@ -69,3 +69,10 @@ object selectorDeEspacio{
 	method posicion() = posicionSeleccion
 }
 //-------------------------------------------------------
+
+
+object nada{
+	method recibirDanio(valor){}					//Este amigo va a encargarse de recibir casi todos los  
+	method ponerCarta(){}							//mensajes que no deberían tener efecto ni respuesta
+	method cambiarObjectivo(objetivo){}
+}
