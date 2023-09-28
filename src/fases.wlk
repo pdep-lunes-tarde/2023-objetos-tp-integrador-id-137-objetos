@@ -17,7 +17,6 @@ object seleccionarCarta {
 	
 	method arriba(){
 		mano.elegir()
-		//debería ser mano.elegir()
 	}
 	
 	method espacio(){}
