@@ -3,6 +3,7 @@ import tp.*
 import objetos.*
 import cartas.*
 import fases.*
+import visuales.*
 
 object mano {
 	const cartas = new List()
@@ -42,12 +43,6 @@ object mano {
 			if(posicionSeleccion > 0) posicionSeleccion--
 			self.nuevaSeleccion()
 	}
-	
-	method cargarDisplay(){
-		if(posicionSeleccion > 0) cartaAnterior.ponerCarta(cartas.get(posicionSeleccion -1))
-		if(self.tamanio() > 0) cartaActual.ponerCarta(cartas.get(posicionSeleccion))
-		if(posicionSeleccion + 1 < self.tamanio()) cartaSiguiente.ponerCarta(cartas.get(posicionSeleccion +1))	
-	}
 	 
 	method nuevaSeleccion(){
 		if(not cartas.isEmpty()){
@@ -56,10 +51,21 @@ object mano {
 		} else seleccion = nada
 	}
 	
+	method cargarDisplay(){
+		if(posicionSeleccion > 0) cartaAnterior.ponerCarta(cartas.get(posicionSeleccion -1))
+		if(self.tamanio() > 0) cartaActual.ponerCarta(cartas.get(posicionSeleccion))
+		if(posicionSeleccion + 1 < self.tamanio()) cartaSiguiente.ponerCarta(cartas.get(posicionSeleccion +1))
+		if(posicionSeleccion > 2) game.addVisual(extensionIzquierda)
+		if(posicionSeleccion + 2 < self.tamanio()) game.addVisual(extensionDerecha)
+			
+	}
+	
 	method borrarDisplay(){
 		if(posicionSeleccion > 0) cartaAnterior.removerCarta()
 		if(self.tamanio() > 0) cartaActual.removerCarta()
 		if(posicionSeleccion + 1 < self.tamanio()) cartaSiguiente.removerCarta()
+		if(posicionSeleccion > 2) game.removeVisual(extensionIzquierda)
+		if(posicionSeleccion + 2 < self.tamanio()) game.removeVisual(extensionDerecha)
 	}
 	
 	

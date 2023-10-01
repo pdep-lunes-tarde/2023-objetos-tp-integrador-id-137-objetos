@@ -19,10 +19,11 @@ object juego{
 		
 		//provisional------------
 		fase = seleccionarCarta
-		mano.robar(carta1)
-		mano.robar(carta2)
-		mano.robar(carta3)
-		//mano.actualizarDisplay()
+		mano.robar(generadorDeCartas.fotocopiar(carta1))
+		mano.robar(generadorDeCartas.fotocopiar(carta2))
+		mano.robar(generadorDeCartas.fotocopiar(carta3))
+		mano.robar(generadorDeCartas.fotocopiar(carta2))
+		mano.robar(generadorDeCartas.fotocopiar(carta2))
 		//-----------------------
 		
 		game.start()
@@ -32,7 +33,7 @@ object juego{
 		game.width(33)
 		game.height(17)
 		game.cellSize(50)
-		game.addVisual(borde)
+		game.addVisual(fondo)
 	}
 	
 	method cambiarFase(_fase){
