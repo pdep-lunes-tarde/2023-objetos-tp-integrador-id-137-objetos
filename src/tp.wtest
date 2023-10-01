@@ -1,4 +1,8 @@
 import tp.*
+import objetos.*
+import cartas.*
+import zonas.*
+import fases.*
 
 //hay que hacer los test
 test "Test de ejemplo" {

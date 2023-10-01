@@ -22,6 +22,7 @@ object juego{
 		mano.robar(carta1)
 		mano.robar(carta2)
 		mano.robar(carta3)
+		//mano.actualizarDisplay()
 		//-----------------------
 		
 		game.start()
