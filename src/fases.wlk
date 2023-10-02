@@ -19,7 +19,12 @@ object seleccionarCarta {
 		mano.elegir()
 	}
 	
-	method espacio(){}
+	method espacio(){
+		a1.atacar()
+		a2.atacar()
+		a3.atacar()
+		a4.atacar()
+	}
 	
 	method abajo(){}
 	

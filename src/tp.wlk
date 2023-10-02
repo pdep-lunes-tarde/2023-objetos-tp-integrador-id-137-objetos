@@ -23,7 +23,8 @@ object juego{
 		mano.robar(generadorDeCartas.fotocopiar(carta2))
 		mano.robar(generadorDeCartas.fotocopiar(carta3))
 		mano.robar(generadorDeCartas.fotocopiar(carta2))
-		mano.robar(generadorDeCartas.fotocopiar(carta2))
+		mano.robar(generadorDeCartas.fotocopiar(carta3))
+		mano.robar(generadorDeCartas.fotocopiar(carta1))
 		//-----------------------
 		
 		game.start()

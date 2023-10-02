@@ -4,7 +4,8 @@ import cartas.*
 import zonas.*
 import fases.*
 
-//hay que hacer los test
-test "Test de ejemplo" {
+describe "Inscryption"{
+	test "Test de ejemplo" {
 		assert.equals(4, 2 + 2)
-}
+
+	}

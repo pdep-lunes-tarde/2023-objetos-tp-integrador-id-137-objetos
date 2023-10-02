@@ -20,6 +20,8 @@ class Puntaje{
 	
 	method atacar(){}
 	
+	method vida() = vida
+	
 	//métodos que no deberían usarse, pero evitan errores 
 	method cambiarObjetivo(_){}
 	method image (){}
