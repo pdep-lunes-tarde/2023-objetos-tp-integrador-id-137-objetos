@@ -31,8 +31,8 @@ object juego{
 	}
 	
 	method iniciarMesa(){
-		game.width(33)
-		game.height(17)
+		game.width(15)
+		game.height(9)
 		game.cellSize(50)
 		game.addVisual(fondo)
 	}
