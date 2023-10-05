@@ -5,7 +5,7 @@ class Selector {
 	const coordenadaInicialX
 	const coordenadaInicialY // Se utiliza para dibujar (NO BORRAR)
 	var desplazamiento //Nota siempre se mueve horizotalmente
-
+	const logoSelector = "selector.png" // agregar
 
 
 //Esto no tipa por que ya existe un selector en el código anterior, pero funciona :D
@@ -34,8 +34,18 @@ class Selector {
 				
 	}
 	
-	method obtenerElementoSeleccionado(){
+	method getSelector(){
 		
 		return elementoActual
+	}
+	
+	method getCoordenadaY(){
+		
+		return coordenadaInicialY
+	}
+	
+	method getLogoSelector(){
+		
+		return logoSelector
 	}
 }

@@ -3,7 +3,7 @@ import cartaNueva.*
 class Mazo {
 	
 	var cartasEnElMazo //Lista de cartas
-	const logoMazo = 1 //completar con el logo del mazo
+	const logoMazo = "logoMazo.png" //completar con el logo del mazo
 
 	method obtenerCarta(){
 		
@@ -23,4 +23,14 @@ class Mazo {
 		}
 		
 	}	
+
+	method obtenerLogoMazo(){
+		
+		return logoMazo
+	}
+	
+	method obtenerImagen(){
+		
+		return logoMazo
+	}
 }

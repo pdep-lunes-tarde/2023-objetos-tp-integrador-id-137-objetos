@@ -17,4 +17,23 @@ object extensionIzquierda{
 	method image() = "extension_izquierda.png"
 }
 
+class Dibujar{ 
+	
+	/*	Solo sirve para dibujar cosas simples
+	 */
+	
+	const coordenadaX
+	const coordenadaY
+	const imagen
+	
+	method draw(){
+		
+		game.addVisual(self)
+	}
+	
+	method position() = game.at(coordenadaX,coordenadaY)
+	method image() = imagen.image()
+	
+}
+
 //

@@ -1,0 +1,2 @@
+- Agregar una imagen al selector "selector.png"
+- Agregar logo de los mazos "logoMazo.png"
