@@ -21,6 +21,7 @@ class Selector {
 		if(elementoActual < cantidadElementos){
 			
 			posicionActualX =  coordenadaInicialX + (desplazamiento*(elementoActual+1))
+			elementoActual++
 		}else{
 			
 			posicionActualX =  coordenadaInicialX + (desplazamiento*elementoActual)
@@ -33,6 +34,7 @@ class Selector {
 		if(elementoActual > 0){
 			
 			posicionActualX = coordenadaInicialX + (desplazamiento*(elementoActual-1))
+			elementoActual--
 		}else{
 			
 			posicionActualX = coordenadaInicialX + (desplazamiento*elementoActual)
@@ -45,13 +47,5 @@ class Selector {
 		return elementoActual
 	}
 	
-	method getCoordenadaY(){
-		
-		return coordenadaInicialY
-	}
-	
-	method getLogoSelector(){
-		
-		return logoSelector
-	}
+
 }

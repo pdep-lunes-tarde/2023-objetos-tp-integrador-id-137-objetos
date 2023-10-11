@@ -46,6 +46,8 @@ object juego{
 		game.addVisual(fondo)
 		
 		faseMazos.dibujarFase()
+		faseBarajaJugador.dibujarFase()
+		
 		
 	}
 	

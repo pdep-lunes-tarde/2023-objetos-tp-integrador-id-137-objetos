@@ -4,7 +4,7 @@ import wollok.game.*
 
 class Mazo {
 	
-	var cartasEnElMazo //Lista de cartas
+	const cartasEnElMazo = [self.armarCarta("primeraCarta"), self.armarCarta("")]
 	const logoMazo = "espacio.png" //completar con el logo del mazo
 	const posicionX
 	const posicionY

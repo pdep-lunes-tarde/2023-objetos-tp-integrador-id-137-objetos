@@ -40,6 +40,7 @@ object mazos {
 	
 	method obtenerSelector(){
 		
+		game.removeVisual(selectorBarajaJugador)
 		return selectorBarajaJugador.getSelector()
 	}
 	
