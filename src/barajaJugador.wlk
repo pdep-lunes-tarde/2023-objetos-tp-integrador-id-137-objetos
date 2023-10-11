@@ -5,7 +5,7 @@ object barajaJugador {
 	
 	var selector = 0
 	
-	var cartasDisponibles //listaDeCartas
+	var cartasDisponibles //listaDeCartas iniciales del jugaor en cado de existir
 	var barajaVisible = [new PortaCarta(cartaPortada = cartaVacia),new PortaCarta(cartaPortada = cartaVacia),new PortaCarta(cartaPortada = cartaVacia)]
 	
 	method setSelector(_selector){

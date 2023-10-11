@@ -1,23 +1,29 @@
+import wollok.game.*
+
+
 class Selector {
 	
 	const cantidadElementos
 	var elementoActual // comienza con el valor 0
 	const coordenadaInicialX
 	const coordenadaInicialY // Se utiliza para dibujar (NO BORRAR)
+	var posicionActualX = coordenadaInicialX
 	var desplazamiento //Nota siempre se mueve horizotalmente
-	const logoSelector = "selector.png" // agregar
+	const logoSelector = "espacio.png" // agregar
 
+	method position() = game.at(posicionActualX, coordenadaInicialY)
+	method image() = logoSelector
 
 //Esto no tipa por que ya existe un selector en el código anterior, pero funciona :D
 	
 	method desplazarDerecha(){
-		
+				
 		if(elementoActual < cantidadElementos){
 			
-			return coordenadaInicialX + (desplazamiento*(elementoActual+1))
+			posicionActualX =  coordenadaInicialX + (desplazamiento*(elementoActual+1))
 		}else{
 			
-			return coordenadaInicialX + (desplazamiento*elementoActual)
+			posicionActualX =  coordenadaInicialX + (desplazamiento*elementoActual)
 		}
 				
 	}
@@ -26,10 +32,10 @@ class Selector {
 		
 		if(elementoActual > 0){
 			
-			return coordenadaInicialX + (desplazamiento*(elementoActual-1))
+			posicionActualX = coordenadaInicialX + (desplazamiento*(elementoActual-1))
 		}else{
 			
-			return coordenadaInicialX + (desplazamiento*elementoActual)
+			posicionActualX = coordenadaInicialX + (desplazamiento*elementoActual)
 		}
 				
 	}

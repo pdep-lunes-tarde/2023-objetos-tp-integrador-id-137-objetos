@@ -1,8 +1,4 @@
 import wollok.game.*
-import objetos.*
-import cartas.*
-import zonas.*
-import fases.*
 import visuales.*
  
 //Imports Nuevos
@@ -17,7 +13,7 @@ object juego{
 	method jugar() {
 		
 		self.iniciarMesa()
-
+		
 	/* Codigo de Tefa nuevo no tocar por ahora Gracias :D
 	 * 
 	 */
@@ -35,13 +31,9 @@ object juego{
 		keyboard.down().onPressDo {fase.abajo()}
 		
 		//provisional------------
-		fase = seleccionarCarta
-		mano.robar(generadorDeCartas.fotocopiar(carta1))
-		mano.robar(generadorDeCartas.fotocopiar(carta2))
-		mano.robar(generadorDeCartas.fotocopiar(carta3))
-		mano.robar(generadorDeCartas.fotocopiar(carta2))
-		mano.robar(generadorDeCartas.fotocopiar(carta3))
-		mano.robar(generadorDeCartas.fotocopiar(carta1))
+		fase = faseMazos
+		
+			
 		//-----------------------
 		
 		game.start()
@@ -52,6 +44,9 @@ object juego{
 		game.height(17)
 		game.cellSize(50)
 		game.addVisual(fondo)
+		
+		faseMazos.dibujarFase()
+		
 	}
 	
 	method cambiarFase(_fase){

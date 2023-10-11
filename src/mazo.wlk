@@ -1,10 +1,17 @@
 import cartaNueva.*
+import wollok.game.*
+
 
 class Mazo {
 	
 	var cartasEnElMazo //Lista de cartas
-	const logoMazo = "logoMazo.png" //completar con el logo del mazo
-
+	const logoMazo = "espacio.png" //completar con el logo del mazo
+	const posicionX
+	const posicionY
+	
+	method position() = game.at(posicionX, posicionY)
+	method image() = logoMazo
+	
 	method obtenerCarta(){
 		
 		return cartasEnElMazo.anyOne()

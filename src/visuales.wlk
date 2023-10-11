@@ -7,7 +7,7 @@ object fondo {
 	method image() = "fondo.png"
 }
 
-object extensionDerecha{
+/*object extensionDerecha{
 	method position() = game.at(13, 2)
 	method image() = "extension_derecha.png"
 }
@@ -15,7 +15,7 @@ object extensionDerecha{
 object extensionIzquierda{
 	method position() = game.at(1, 2)
 	method image() = "extension_izquierda.png"
-}
+}*/
 
 class Dibujar{ 
 	
@@ -26,14 +26,9 @@ class Dibujar{
 	const coordenadaY
 	const imagen
 	
-	method draw(){
-		
-		game.addVisual(self)
-	}
+
 	
 	method position() = game.at(coordenadaX,coordenadaY)
 	method image() = imagen.image()
 	
 }
-
-//
