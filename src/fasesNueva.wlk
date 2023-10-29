@@ -6,7 +6,6 @@ import barajaJugador.*
 import tp.*
 
 
-
 object faseMazos {
 	
 
@@ -43,11 +42,10 @@ object faseBarajaJugador {
 	
 	method dibujarFase(){
 		
-		barajaJugador.dibujarInicial()
-		
+		barajaJugador.dibujarInicial()		
 	}
 	
-	method dibujarCartas(){}
+
 	
 	method espacio(){} // No debería hacer nada
 	
@@ -68,5 +66,4 @@ object faseBarajaJugador {
 	
 	method abajo(){}
 		//Nada por ahora en un futuro se cambia a la siguiente fase
-	
 }

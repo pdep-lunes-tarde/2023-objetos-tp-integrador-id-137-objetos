@@ -1,3 +1,9 @@
 - Agregar una imagen al selector "selector.png"
 - Agregar logo de los mazos "logoMazo.png"
-- refactor en el objeto "barajaJugador.wlk"
+- refactor en el objeto "barajaJugador.wlk" 
+	Imp: Dejar a Tefa
+- Por alguna razon al seleccionar una carta del mazo no se agrega a la baraja del jugador,
+	antes funcionaba y ahora no :)
+- Agregar las imágenes de la vida y el daño
+	Aclaración importante: Si se incluye la lógica en "dibujarCarta" se agrega en todas partes
+	

@@ -6,7 +6,7 @@ class Mano {
 	
 	//Se pude crear un método que me lo retorne,pero por ahora se queda así
 	
-	const cartasEnMano = [new PortaCarta(cartaPortada = cartaVacia), new PortaCarta(cartaPortada = cartaVacia), new PortaCarta(cartaPortada = cartaVacia), new PortaCarta(cartaPortada = cartaVacia)]
+	const cartasEnMano = [new PortaCarta(cartaPortada = cartaVacia, coordenadaX = 10, coordenadaY = 10)]
 
 	method setPosicion(posicion, carta){
 		
