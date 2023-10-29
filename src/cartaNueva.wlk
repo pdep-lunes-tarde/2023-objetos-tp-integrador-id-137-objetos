@@ -3,12 +3,12 @@ import wollok.game.*
 
 class CartaNueva {
 	
-	var fuerza
+	var property fuerza
 	var property salud
-	const logoCarta
-	var logoSalud
+	const property logoCarta
+	var property logoSalud
 	const logoFuerza
-	var sangreCarta
+	const property sangreCarta 
 	const logoCostoCarta
 	
 	var coordenadaX = 0
@@ -22,16 +22,19 @@ class CartaNueva {
 		coordenadaX = _x
 		coordenadaY = _y
 	}
+	
+	
+	
 
-	method setLogoSalud(_logoSalud){
+	 // method setLogoSalud(_logoSalud){
 		
-		logoSalud = _logoSalud
-	} 
+	 //	logoSalud = _logoSalud
+	 // } 
 	
 	
 	
-	method getLogoCarta() = return logoCarta
-	method getFuerza() = return fuerza
-	method getSangre() = return sangreCarta
+	// method getLogoCarta() = return logoCarta
+	// method getFuerza() = return fuerza
+	// method getSangre() = return sangreCarta
 	
 }

@@ -2,8 +2,8 @@ import portaCarta.*
 import cartaVacia.*
 import wollok.game.*
 import cartaNueva.*
-import barajaJugador.extencionDerecha
-import barajaJugador.extencionIzquierda
+import barajaJugador.extensionDerecha
+import barajaJugador.extensionIzquierda
 
 
 object barajaJugador {
@@ -17,7 +17,10 @@ object barajaJugador {
 	
 	//Esto estaría bueno separarlo en otro objeto
 		
-	var barajaVisible = [new PortaCarta(cartaPortada = cartaVacia, coordenadaX = coordenadaX, coordenadaY = coordenadaY),new PortaCarta(cartaPortada = cartaVacia, coordenadaX = coordenadaX+separacion, coordenadaY = coordenadaY),new PortaCarta(cartaPortada = cartaVacia, coordenadaX = coordenadaX+(2*separacion), coordenadaY = coordenadaY)]
+	var barajaVisible = [new PortaCarta(cartaPortada = cartaVacia, coordenadaX = coordenadaX, coordenadaY = coordenadaY),
+		new PortaCarta(cartaPortada = cartaVacia, coordenadaX = coordenadaX + separacion, coordenadaY = coordenadaY),
+		new PortaCarta(cartaPortada = cartaVacia, coordenadaX = coordenadaX + (2*separacion), coordenadaY = coordenadaY)
+	]
 	
 	method dibujarInicial(){
 		
@@ -40,7 +43,7 @@ object barajaJugador {
 		
 			game.addVisual(barajaVisible.get(1))
 			game.addVisual(barajaVisible.get(2))
-			game.addVisual(extencionDerecha)		
+			game.addVisual(extensionDerecha)		
 		}
 		
 		
@@ -60,7 +63,7 @@ object barajaJugador {
 		
 			game.removeVisual(barajaVisible.get(1))
 			game.removeVisual(barajaVisible.get(2))
-			game.removeVisual(extencionDerecha)		
+			game.removeVisual(extensionDerecha)		
 		}	
 	}
 	
@@ -115,23 +118,23 @@ object barajaJugador {
 	}
 }
 
-object extencionDerecha{
+object extensionDerecha{
 	
 	var coordenadaX = 13
 	var coordenadaY = 2
-	var logoExtencionDerecha = "extension_derecha.png"
+	var logoExtensionDerecha = "extension_derecha.png"
 	
 	method position() = game.at(coordenadaX, coordenadaY)
-	method image() = logoExtencionDerecha
+	method image() = logoExtensionDerecha
 }
 
-object extencionIzquierda{
+object extensionIzquierda{
 	
 	var coordenadaX = 1
 	var coordenadaY = 2
-	var logoExtencionIzquierda = "extension_izquierda.png"
+	var logoExtensionIzquierda = "extension_izquierda.png"
 	
 	method position() = game.at(coordenadaX, coordenadaY)
-	method image() = logoExtencionIzquierda
+	method image() = logoExtensionIzquierda
 	
 }
