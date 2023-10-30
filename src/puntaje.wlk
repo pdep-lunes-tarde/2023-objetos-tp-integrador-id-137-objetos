@@ -5,8 +5,8 @@ object puntaje {
 	var puntosEnemigo = 5
 	
 	method restarPuntosJugador(puntos){
-		puntosJugador = puntosJugador - puntos
-		puntosEnemigo = puntosEnemigo + puntos
+		puntosJugador = puntosJugador - puntos // Probar si se puede poner -=
+		puntosEnemigo = puntosEnemigo + puntos // Probar si se puede poner +=
 		self.dibujar()
 	}
 	
