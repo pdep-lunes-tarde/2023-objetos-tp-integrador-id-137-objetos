@@ -4,11 +4,10 @@ import barajaJugador.*
 import wollok.game.*
 import barajaJugador.*
 import tp.*
-
+import puntaje.*
 
 object faseMazos {
 	
-
 	method dibujarFase(){
 		
 		mazos.draw()

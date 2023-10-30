@@ -24,10 +24,10 @@ class PortaCarta {
 		game.removeVisual(cartaPortada)
 	}
 	
-//	method setCartaPortada(_cartaPortada){
+	method setCartaPortada(_cartaPortada){
 		
-//		cartaPortada = _cartaPortada
-//	}
+		cartaPortada = _cartaPortada
+	}
 	
 
 //	method getCartaPortada()= return cartaPortada
