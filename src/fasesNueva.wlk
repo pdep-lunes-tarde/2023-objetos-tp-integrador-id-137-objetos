@@ -4,12 +4,10 @@ import barajaJugador.*
 import wollok.game.*
 import barajaJugador.*
 import tp.*
-<<<<<<< HEAD
+
 import manoJugador.*
 
-=======
 import puntaje.*
->>>>>>> tefa
 
 object faseMazos {
 	
@@ -18,7 +16,11 @@ object faseMazos {
 		mazos.draw()
 	}
 	
-	method espacio(){} // No debería hacer nada
+	method espacio(){
+		
+		juego.cambiarFase(faseBarajaJugador)
+		
+	} // No debería hacer nada
 	
 	method derecha(){
 		
@@ -34,8 +36,9 @@ object faseMazos {
 	method arriba(){
 		
 		juego.cambiarFase(faseBarajaJugador)
-		//Ojo al tocar esto, ver bien como armarlo
-		//barajaJugador.addCarta(mazos.tomarCarta(mazos.obtenerSelector()))
+		barajaJugador.eliminarInicial()
+		barajaJugador.addCarta(mazos.tomarCarta(mazos.obtenerSelector()))
+		barajaJugador.dibujarInicial()
 	}
 	
 	method abajo(){}

@@ -30,6 +30,6 @@ class PortaCarta {
 	}
 	
 
-//	method getCartaPortada()= return cartaPortada
+	method getCartaPortada()= return cartaPortada
 	
 }

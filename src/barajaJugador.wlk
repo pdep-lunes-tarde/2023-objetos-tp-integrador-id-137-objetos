@@ -13,112 +13,61 @@ object barajaJugador {
 	const coordenadaY = 1
 	const separacion = 4
 		
-	var cartasDisponibles = new List()
+	var cartasDisponibles = [new CartaNueva(logoCarta = "carta1.png", sangreCarta = 1, fuerza = 1, salud = 1)]
 	
 	//Esto estaría bueno separarlo en otro objeto
 		
 	var barajaVisible = [new PortaCarta(cartaPortada = cartaVacia, coordenadaX = coordenadaX, coordenadaY = coordenadaY),
 		new PortaCarta(cartaPortada = cartaVacia, coordenadaX = coordenadaX + separacion, coordenadaY = coordenadaY),
-		new PortaCarta(cartaPortada = cartaVacia, coordenadaX = coordenadaX + (2*separacion), coordenadaY = coordenadaY)
-	]
+		new PortaCarta(cartaPortada = cartaVacia, coordenadaX = coordenadaX + (2*separacion), coordenadaY = coordenadaY)]
+	
+	
+	method eliminarInicial(){
+		
+			var posicionAnterior = barajaVisible.get(0)
+			posicionAnterior.eliminarCarta()
+			game.removeVisual(posicionAnterior)
+			
+			if(cartasDisponibles.size()==1){	
+				
+				var posicionActual = barajaVisible.get(1)
+				posicionActual.eliminarCarta()
+				game.removeVisual(posicionActual)
+			}
+			
+			if(cartasDisponibles.size() >=2){
+				var posicionSiguiente = barajaVisible.get(2)
+				posicionSiguiente.eliminarCarta()
+				game.removeVisual(posicionSiguiente)
+				game.removeVisual(extensionDerecha)}
+			}
+	
 	
 	method dibujarInicial(){
 		
-		//Esto son test para probar cosas
-		cartasDisponibles.add(new CartaNueva(fuerza = 1, salud = 1, logoCarta = "carta1.png", logoSalud = "", sangreCarta = 4, logoCostoCarta = ""))
-		cartasDisponibles.add(new CartaNueva(fuerza = 1, salud = 1, logoCarta = "carta2.png", logoSalud = "", sangreCarta = 4, logoCostoCarta = ""))
-		cartasDisponibles.add(new CartaNueva(fuerza = 1, salud = 1, logoCarta = "carta1.png", logoSalud = "", sangreCarta = 4, logoCostoCarta = ""))
-
-		//Fin de test para probar cosas
-		
-
-<<<<<<< HEAD
-		/*if(cartasDisponibles.size() == 1){
-=======
-		if(cartasDisponibles.size() == 1){
-					
-			game.addVisual(barajaVisible.get(1))
-		}else if(cartasDisponibles.size()==2){
-			
-			game.addVisual(barajaVisible.get(1))
-			game.addVisual(barajaVisible.get(2))
-		}else if(cartasDisponibles.size() >= 3){
-		
-			game.addVisual(barajaVisible.get(1))
-			game.addVisual(barajaVisible.get(2))
-			game.addVisual(extensionDerecha)		
-		}
-		
-		
-		self.dibujarCartasInicial()
-	}
-	
-	method removerInicial(){
-		
-		if(cartasDisponibles.size() == 1){
-					
-			game.removeVisual(barajaVisible.get(1))
-		}else if(cartasDisponibles.size()==2){
-			
-			game.removeVisual(barajaVisible.get(1))
-			game.removeVisual(barajaVisible.get(2))
-		}else if(cartasDisponibles.size() >= 3){
-		
-			game.removeVisual(barajaVisible.get(1))
-			game.removeVisual(barajaVisible.get(2))
-			game.removeVisual(extensionDerecha)		
-		}	
-	}
-	
-	method dibujarCartasInicial(){
-		
-		//Nota se puede hacer refactor sacando un Método y achicando mucho el código
-		
-		if(cartasDisponibles.size() == 1){
->>>>>>> tefa
-					
-			var posicionActual = barajaVisible.get(1)
-			posicionActual.setCartaPortada(cartasDisponibles.get(0))
-			game.addVisual(posicionActual)
-			posicionActual.dibujarCarta()	
-				
-		}else if(cartasDisponibles.size()==2){
-			
-			var posicionActual = barajaVisible.get(1)
-			posicionActual.setCartaPortada(cartasDisponibles.get(0))
-			game.addVisual(posicionActual)
-			posicionActual.dibujarCarta()
-			
-			var posicionSiguiente = barajaVisible.get(2)
-			posicionSiguiente.setCartaPortada(cartasDisponibles.get(1))
-			game.addVisual(posicionSiguiente)
-			posicionSiguiente.dibujarCarta()
-			
-		}else if(cartasDisponibles.size() >= 3){
-		*/
 			
 			var posicionAnterior = barajaVisible.get(0)
 			posicionAnterior.setCartaPortada(cartaVacia)
 			game.addVisual(posicionAnterior)
-				
-			var posicionActual = barajaVisible.get(1)
-			posicionActual.setCartaPortada(cartasDisponibles.get(0))
-			game.addVisual(posicionActual)
+			posicionAnterior.dibujarCarta()
 			
-			posicionActual.dibujarCarta()
+			if(cartasDisponibles.size()==1){	
+				var posicionActual = barajaVisible.get(1)
+				posicionActual.setCartaPortada(cartasDisponibles.get(0))
+				game.addVisual(posicionActual)
+				posicionActual.dibujarCarta()
 			
-			var posicionSiguiente = barajaVisible.get(2)
-			posicionSiguiente.setCartaPortada(cartasDisponibles.get(1))
-			game.addVisual(posicionSiguiente)
-			posicionSiguiente.dibujarCarta()
+			}
 			
-			game.addVisual(extencionDerecha)						
+			if(cartasDisponibles.size() >=2){
+				var posicionSiguiente = barajaVisible.get(2)
+				posicionSiguiente.setCartaPortada(cartasDisponibles.get(1))
+				game.addVisual(posicionSiguiente)
+				posicionSiguiente.dibujarCarta()
+				game.addVisual(extensionDerecha)		
+			}				
 		}
-		
-	//}
-	
-
-
+			
 	method derecha(){
 		
 		if((selector >= 0) && (cartasDisponibles.size()>1) && (selector <= cartasDisponibles.size()-2)){
@@ -126,12 +75,9 @@ object barajaJugador {
 			var posicionAnterior = barajaVisible.get(0)
 			var posicionActual = barajaVisible.get(1)
 			var posicionSiguiente = barajaVisible.get(2)
+
 			
-			if(selector==0){
-				
-				//game.addVisual(posicionAnterior)
-			}
-			
+			posicionAnterior.eliminarCarta()
 			posicionAnterior.setCartaPortada(posicionActual.getCartaPortada())
 			posicionActual.eliminarCarta()
 			posicionAnterior.dibujarCarta()
@@ -142,15 +88,14 @@ object barajaJugador {
 			if(cartasDisponibles.size() == selector+2){
 				
 				//game.removeVisual(posicionSiguiente)
+				posicionSiguiente.setCartaPortada(cartaVacia)
+				posicionSiguiente.dibujarCarta()
 			}else{
 				
 				posicionSiguiente.setCartaPortada(cartasDisponibles.get(selector+2))
 				posicionSiguiente.dibujarCarta()
 			}
-			
-			//if(cartasDisponibles.size()==selector+3){
-				//game.removeVisual(extencionDerecha)
-			//}
+
 			
 			selector++
 		}
@@ -166,13 +111,6 @@ object barajaJugador {
 			var posicionActual = barajaVisible.get(1)
 			var posicionSiguiente = barajaVisible.get(2)
 			
-			
-			if(selector==cartasDisponibles.size()-1){
-				
-				//game.addVisual(posicionSiguiente)
-				//posicionSiguiente.dibujarCarta()
-			}
-			
 			posicionSiguiente.eliminarCarta()
 			posicionSiguiente.setCartaPortada(posicionActual.getCartaPortada())
 			posicionActual.eliminarCarta()
@@ -183,7 +121,8 @@ object barajaJugador {
 			
 			if(selector == 1){
 				
-				//game.removeVisual(posicionAnterior)
+				posicionAnterior.setCartaPortada(cartaVacia)
+				posicionAnterior.dibujarCarta()
 			}else{
 				
 				posicionAnterior.setCartaPortada(cartasDisponibles.get(selector-2))

@@ -5,11 +5,9 @@ object cartaVacia {
 
 	var fuerza = 0
 	var property salud = 0
-	const logoCarta = "portaCarta.png"
+	const logoCarta = "espacio.png"
 	var logoSalud = ""
-	const logoFuerza = ""
 	var sangreCarta = 0
-	const logoCostoCarta = ""
 	
 	var coordenadaX = 0
 	var coordenadaY = 0

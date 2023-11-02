@@ -4,8 +4,8 @@ import wollok.game.*
 
 class Mazo {
 	
-	const cartasEnElMazo = [self.armarCarta("primeraCarta"), self.armarCarta("")]
-	const logoMazo = "espacio.png" //completar con el logo del mazo
+	const cartasEnElMazo = []
+	const logoMazo //completar con el logo del mazo
 	const posicionX
 	const posicionY
 	
@@ -14,30 +14,53 @@ class Mazo {
 	
 	method obtenerCarta(){
 		
-		return cartasEnElMazo.anyOne()
+		return self.armarCarta(cartasEnElMazo.anyOne())
 	}
 	
 	method armarCarta(nombreCarta){
 		
-		if(nombreCarta == "primeraCarta"){
+		if(nombreCarta == "girasol"){
 			
-			return new CartaNueva(fuerza = 1, salud = 1, logoCarta = 1, logoSalud = 1, logoFuerza = 1, sangreCarta = 1, logoCostoCarta = 1)
+			return new CartaNueva(logoCarta = "carta1.png",fuerza = 1, salud = 1, sangreCarta = 1)
 			
-		}else{
+		}if(nombreCarta == "carnivora"){
 			
-		return new CartaNueva(fuerza = 2, salud = 2, logoCarta = 2, logoSalud = 2, logoFuerza = 2, sangreCarta = 2, logoCostoCarta = 2)
+		return new CartaNueva(logoCarta = "carta2.png", sangreCarta = 2, fuerza = 3, salud = 4)
+			
+		}else if(nombreCarta == "carpincho"){
+			
+		return new CartaNueva(logoCarta = "carta3.png", sangreCarta = 1, fuerza = 2, salud = 3)
+			
+		}else if(nombreCarta == "marmota"){
+			
+		return new CartaNueva(logoCarta = "carta4.png", sangreCarta = 1, fuerza = 1, salud = 1)
+			
+		}else if(nombreCarta == "ardilla"){
+			
+		return new CartaNueva(logoCarta = "carta5.png", sangreCarta = 0, fuerza = 0, salud = 1)
+			
+		}else if(nombreCarta == "tortuga"){
+			
+		return new CartaNueva(logoCarta = "carta6.png", sangreCarta = 3, fuerza = 1, salud = 7)
+			
+		}else if(nombreCarta == "oso"){
+			
+		return new CartaNueva(logoCarta = "carta7.png", sangreCarta = 4, fuerza = 4, salud = 6)
+			
+		}else if(nombreCarta == "jabali"){
+			
+		return new CartaNueva(logoCarta = "carta8.png", sangreCarta = 3, fuerza = 3, salud = 3)
+			
+		}else if(nombreCarta == "leon"){
+			
+		return new CartaNueva(logoCarta = "carta9.png", sangreCarta = 4, fuerza = 4, salud = 8)
+			
+		}else{ // retorna CANGURO
+			
+		return new CartaNueva(logoCarta = "carta10.png", sangreCarta = 2, fuerza = 3, salud = 3)
 			
 		}
 		
 	}	
 
-	method obtenerLogoMazo(){
-		
-		return logoMazo
-	}
-	
-	method obtenerImagen(){
-		
-		return logoMazo
-	}
 }

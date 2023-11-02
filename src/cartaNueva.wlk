@@ -3,19 +3,10 @@ import wollok.game.*
 
 class CartaNueva {
 	
-	var property fuerza
-	var property salud
-<<<<<<< HEAD
 	const logoCarta
-	var logoSalud
 	var sangreCarta
-=======
-	const property logoCarta
-	var property logoSalud
-	const logoFuerza
-	const property sangreCarta 
->>>>>>> tefa
-	const logoCostoCarta
+	var fuerza
+	var salud
 	
 	var coordenadaX = 0
 	var coordenadaY = 0

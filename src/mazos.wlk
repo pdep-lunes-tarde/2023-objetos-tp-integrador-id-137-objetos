@@ -13,8 +13,9 @@ object mazos {
 		
 	const selectorBarajaJugador = new Selector(cantidadElementos = 1, elementoActual = 0, coordenadaInicialX = posicionMazosX, coordenadaInicialY = posicionMazosY-1, desplazamiento = separacionMasos)
 	
-	const mazoEsbirros = new Mazo(cartasEnElMazo = ["esbirro"], posicionX = posicionMazosX, posicionY = posicionMazosY)
-	const mazoSacrificio = new Mazo(cartasEnElMazo = ["primeraCarta","segundaCarta"], posicionX = posicionMazosX+separacionMasos, posicionY = posicionMazosY)
+	const mazoEsbirros = new Mazo(cartasEnElMazo = ["ardilla"], posicionX = posicionMazosX, posicionY = posicionMazosY, logoMazo = "dorsoDeMazo2.png")
+	
+	const mazoSacrificio = new Mazo(cartasEnElMazo = ["tortuga"], posicionX = posicionMazosX+separacionMasos, posicionY = posicionMazosY, logoMazo = "dorsoDeMazo1.png")
 	
 	method draw(){
 		
