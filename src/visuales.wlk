@@ -7,6 +7,17 @@ object fondo {
 	method image() = "fondo.png"
 }
 
+object puntajeDisplay {
+	var image = "5vida.png"
+	
+	method position() = game.at(10,6)
+	method image() = image
+	
+	method setImage(_image){
+		image = _image
+	}
+}
+
 /*object extensionDerecha{
 	method position() = game.at(13, 2)
 	method image() = "extension_derecha.png"

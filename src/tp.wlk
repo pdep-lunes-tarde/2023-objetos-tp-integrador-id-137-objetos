@@ -1,6 +1,10 @@
 import wollok.game.*
 import visuales.*
+<<<<<<< HEAD
 import manoEnemigo.*
+=======
+import puntaje.*
+>>>>>>> tefa
  
 //Imports Nuevos
 import fasesNueva.*
@@ -45,6 +49,7 @@ object juego{
 		game.height(17)
 		game.cellSize(50)
 		game.addVisual(fondo)
+		game.addVisual(puntajeDisplay)
 		
 		faseMazos.dibujarFase()
 		faseBarajaJugador.dibujarFase()

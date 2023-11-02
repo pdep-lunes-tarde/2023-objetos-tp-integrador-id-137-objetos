@@ -4,12 +4,15 @@ import barajaJugador.*
 import wollok.game.*
 import barajaJugador.*
 import tp.*
+<<<<<<< HEAD
 import manoJugador.*
 
+=======
+import puntaje.*
+>>>>>>> tefa
 
 object faseMazos {
 	
-
 	method dibujarFase(){
 		
 		mazos.draw()

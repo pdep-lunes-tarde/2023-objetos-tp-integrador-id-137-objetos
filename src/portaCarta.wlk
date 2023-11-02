@@ -6,7 +6,7 @@ import cartaVacia.*
 class PortaCarta {
 	
 	const logoPortaCarta = "espacio.png" //ES temporal para que no grite
-	var cartaPortada 
+	var property cartaPortada 
 	const coordenadaX
 	const coordenadaY
 	
@@ -19,7 +19,6 @@ class PortaCarta {
 		game.addVisual(cartaPortada)
 	}
 	
-	
 	method eliminarCarta(){
 		
 		game.removeVisual(cartaPortada)
@@ -31,6 +30,6 @@ class PortaCarta {
 	}
 	
 
-	method getCartaPortada()= return cartaPortada
+//	method getCartaPortada()= return cartaPortada
 	
 }
