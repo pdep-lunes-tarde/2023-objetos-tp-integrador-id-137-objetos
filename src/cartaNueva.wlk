@@ -7,7 +7,6 @@ class CartaNueva {
 	var property salud
 	const logoCarta
 	var logoSalud
-	const logoFuerza
 	var sangreCarta
 	const logoCostoCarta
 	

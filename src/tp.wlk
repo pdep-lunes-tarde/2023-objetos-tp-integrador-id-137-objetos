@@ -1,5 +1,6 @@
 import wollok.game.*
 import visuales.*
+import manoEnemigo.*
  
 //Imports Nuevos
 import fasesNueva.*
@@ -47,7 +48,8 @@ object juego{
 		
 		faseMazos.dibujarFase()
 		faseBarajaJugador.dibujarFase()
-		
+		faseManoJugador.dibujarFase()
+		manoEnemigo.dibujarInicial() //Notese q no es una fase
 		
 	}
 	

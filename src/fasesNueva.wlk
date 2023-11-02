@@ -4,6 +4,7 @@ import barajaJugador.*
 import wollok.game.*
 import barajaJugador.*
 import tp.*
+import manoJugador.*
 
 
 object faseMazos {
@@ -29,8 +30,9 @@ object faseMazos {
 	
 	method arriba(){
 		
-		barajaJugador.addCarta(mazos.tomarCarta(mazos.obtenerSelector()))
 		juego.cambiarFase(faseBarajaJugador)
+		//Ojo al tocar esto, ver bien como armarlo
+		//barajaJugador.addCarta(mazos.tomarCarta(mazos.obtenerSelector()))
 	}
 	
 	method abajo(){}
@@ -58,6 +60,37 @@ object faseBarajaJugador {
 	method izquierda(){
 
 		barajaJugador.izquierda()
+	}
+	
+	method arriba(){
+		
+	}
+	
+	method abajo(){}
+		//Nada por ahora en un futuro se cambia a la siguiente fase
+}
+
+object faseManoJugador {
+	
+	
+	method dibujarFase(){
+		
+		manoJugador.dibujarInicial()		
+	}
+	
+
+	
+	method espacio(){} // No debería hacer nada
+	
+	method derecha(){
+		
+		manoJugador.derecha()
+
+	}
+	
+	method izquierda(){
+
+		manoJugador.izquierda()
 	}
 	
 	method arriba(){

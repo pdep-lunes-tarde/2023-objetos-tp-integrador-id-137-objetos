@@ -12,7 +12,7 @@ object barajaJugador {
 	const coordenadaX = 2
 	const coordenadaY = 1
 	const separacion = 4
-	
+		
 	var cartasDisponibles = new List()
 	
 	//Esto estaría bueno separarlo en otro objeto
@@ -22,84 +22,129 @@ object barajaJugador {
 	method dibujarInicial(){
 		
 		//Esto son test para probar cosas
-		cartasDisponibles.add(new CartaNueva(fuerza = 1, salud = 1, logoCarta = "carta1.png", logoSalud = "", logoFuerza = "", sangreCarta = 4, logoCostoCarta = ""))
-		cartasDisponibles.add(new CartaNueva(fuerza = 1, salud = 1, logoCarta = "carta2.png", logoSalud = "", logoFuerza = "", sangreCarta = 4, logoCostoCarta = ""))
-		cartasDisponibles.add(new CartaNueva(fuerza = 1, salud = 1, logoCarta = "carta2.png", logoSalud = "", logoFuerza = "", sangreCarta = 4, logoCostoCarta = ""))
-		
+		cartasDisponibles.add(new CartaNueva(fuerza = 1, salud = 1, logoCarta = "carta1.png", logoSalud = "", sangreCarta = 4, logoCostoCarta = ""))
+		cartasDisponibles.add(new CartaNueva(fuerza = 1, salud = 1, logoCarta = "carta2.png", logoSalud = "", sangreCarta = 4, logoCostoCarta = ""))
+		cartasDisponibles.add(new CartaNueva(fuerza = 1, salud = 1, logoCarta = "carta1.png", logoSalud = "", sangreCarta = 4, logoCostoCarta = ""))
+
 		//Fin de test para probar cosas
 		
 
-		if(cartasDisponibles.size() == 1){
-					
-			game.addVisual(barajaVisible.get(1))
-		}else if(cartasDisponibles.size()==2){
-			
-			game.addVisual(barajaVisible.get(1))
-			game.addVisual(barajaVisible.get(2))
-		}else if(cartasDisponibles.size() >= 3){
-		
-			game.addVisual(barajaVisible.get(1))
-			game.addVisual(barajaVisible.get(2))
-			game.addVisual(extencionDerecha)		
-		}
-		
-		
-		self.dibujarCartasInicial()
-	}
-	
-	method removerInicial(){
-		
-		if(cartasDisponibles.size() == 1){
-					
-			game.removeVisual(barajaVisible.get(1))
-		}else if(cartasDisponibles.size()==2){
-			
-			game.removeVisual(barajaVisible.get(1))
-			game.removeVisual(barajaVisible.get(2))
-		}else if(cartasDisponibles.size() >= 3){
-		
-			game.removeVisual(barajaVisible.get(1))
-			game.removeVisual(barajaVisible.get(2))
-			game.removeVisual(extencionDerecha)		
-		}	
-	}
-	
-	method dibujarCartasInicial(){
-		
-		//Nota se puede hacer refactor sacando un Método y achicando mucho el código
-		
-		if(cartasDisponibles.size() == 1){
+		/*if(cartasDisponibles.size() == 1){
 					
 			var posicionActual = barajaVisible.get(1)
 			posicionActual.setCartaPortada(cartasDisponibles.get(0))
-			posicionActual.dibujarCarta()
-			
-		}else if(cartasDisponibles.size()>=2){
+			game.addVisual(posicionActual)
+			posicionActual.dibujarCarta()	
+				
+		}else if(cartasDisponibles.size()==2){
 			
 			var posicionActual = barajaVisible.get(1)
 			posicionActual.setCartaPortada(cartasDisponibles.get(0))
+			game.addVisual(posicionActual)
 			posicionActual.dibujarCarta()
 			
 			var posicionSiguiente = barajaVisible.get(2)
 			posicionSiguiente.setCartaPortada(cartasDisponibles.get(1))
+			game.addVisual(posicionSiguiente)
 			posicionSiguiente.dibujarCarta()
+			
+		}else if(cartasDisponibles.size() >= 3){
+		*/
+			
+			var posicionAnterior = barajaVisible.get(0)
+			posicionAnterior.setCartaPortada(cartaVacia)
+			game.addVisual(posicionAnterior)
+				
+			var posicionActual = barajaVisible.get(1)
+			posicionActual.setCartaPortada(cartasDisponibles.get(0))
+			game.addVisual(posicionActual)
+			
+			posicionActual.dibujarCarta()
+			
+			var posicionSiguiente = barajaVisible.get(2)
+			posicionSiguiente.setCartaPortada(cartasDisponibles.get(1))
+			game.addVisual(posicionSiguiente)
+			posicionSiguiente.dibujarCarta()
+			
+			game.addVisual(extencionDerecha)						
+		}
+		
+	//}
+	
+
+
+	method derecha(){
+		
+		if((selector >= 0) && (cartasDisponibles.size()>1) && (selector <= cartasDisponibles.size()-2)){
+			
+			var posicionAnterior = barajaVisible.get(0)
+			var posicionActual = barajaVisible.get(1)
+			var posicionSiguiente = barajaVisible.get(2)
+			
+			if(selector==0){
+				
+				//game.addVisual(posicionAnterior)
 			}
 			
+			posicionAnterior.setCartaPortada(posicionActual.getCartaPortada())
+			posicionActual.eliminarCarta()
+			posicionAnterior.dibujarCarta()
+			posicionActual.setCartaPortada(posicionSiguiente.getCartaPortada())
+			posicionSiguiente.eliminarCarta()
+			posicionActual.dibujarCarta()
+				
+			if(cartasDisponibles.size() == selector+2){
+				
+				//game.removeVisual(posicionSiguiente)
+			}else{
+				
+				posicionSiguiente.setCartaPortada(cartasDisponibles.get(selector+2))
+				posicionSiguiente.dibujarCarta()
+			}
+			
+			//if(cartasDisponibles.size()==selector+3){
+				//game.removeVisual(extencionDerecha)
+			//}
+			
+			selector++
+		}
+
 	}
 	
 	method izquierda(){
-	}
-	
-	method derecha(){
 		
-		if(cartasDisponibles.size()==2){
+		if(selector >= 0 && cartasDisponibles.size()>1 && selector!=0 && selector < cartasDisponibles.size()){
 			
-			var posicionActual = barajaVisible.get(1)
-			
-			
+						
 			var posicionAnterior = barajaVisible.get(0)
-			posicionAnterior.setCartaPortada()
+			var posicionActual = barajaVisible.get(1)
+			var posicionSiguiente = barajaVisible.get(2)
 			
+			
+			if(selector==cartasDisponibles.size()-1){
+				
+				//game.addVisual(posicionSiguiente)
+				//posicionSiguiente.dibujarCarta()
+			}
+			
+			posicionSiguiente.eliminarCarta()
+			posicionSiguiente.setCartaPortada(posicionActual.getCartaPortada())
+			posicionActual.eliminarCarta()
+			posicionSiguiente.dibujarCarta()
+			posicionActual.setCartaPortada(posicionAnterior.getCartaPortada())
+			posicionAnterior.eliminarCarta()
+			posicionActual.dibujarCarta()
+			
+			if(selector == 1){
+				
+				//game.removeVisual(posicionAnterior)
+			}else{
+				
+				posicionAnterior.setCartaPortada(cartasDisponibles.get(selector-2))
+				posicionAnterior.dibujarCarta()
+			}
+			
+			selector--
 		}
 	}
 	

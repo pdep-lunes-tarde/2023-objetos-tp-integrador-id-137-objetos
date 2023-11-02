@@ -4,9 +4,19 @@ import cartaVacia.*
 
 object manoEnemigo {
 	
-	const manoActual = new Mano()
-	const manoSiguiente = new Mano()
+	var coordenadaX = 17
+	var coordenadaY = 7
+	var separacion = 4
 	
+	const manoActual = new Mano(coordenadaX = coordenadaX, coordenadaY = coordenadaY, separacion = separacion)
+	const manoSiguiente = new Mano(coordenadaX = coordenadaX, coordenadaY = coordenadaY+5, separacion = separacion)
+	
+	
+	method dibujarInicial(){
+		
+		manoActual.dibujarInicial()
+		manoSiguiente.dibujarInicial()
+	}
 	
 	method atacar(cartaEnemigo){
 				

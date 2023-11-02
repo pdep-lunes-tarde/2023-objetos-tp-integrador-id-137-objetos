@@ -31,6 +31,6 @@ object cartaVacia {
 	method getFuerza() = return fuerza
 	method getSangre() = return sangreCarta
 	
-	
+	method image() = logoCarta
 	
 }
