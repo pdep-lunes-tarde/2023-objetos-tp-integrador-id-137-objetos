@@ -23,15 +23,15 @@ class CartaNueva {
 	
 	
 
-	 // method setLogoSalud(_logoSalud){
+    //method setLogoSalud(_logoSalud){
 		
-	 //	logoSalud = _logoSalud
-	 // } 
+	// 	logoSalud = _logoSalud
+    //} 
 	
 	
 	
-	// method getLogoCarta() = return logoCarta
-	// method getFuerza() = return fuerza
-	// method getSangre() = return sangreCarta
+	method getLogoCarta() = return logoCarta
+	method getFuerza() = return fuerza
+	method getSangre() = return sangreCarta
 	
 }

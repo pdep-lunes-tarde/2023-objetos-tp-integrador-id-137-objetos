@@ -4,7 +4,7 @@ import wollok.game.*
 import cartaNueva.*
 import barajaJugador.extensionDerecha
 import barajaJugador.extensionIzquierda
-
+import barajaJugador.extensionArriba
 
 object barajaJugador {
 	
@@ -165,3 +165,16 @@ object extensionIzquierda{
 	method image() = logoExtensionIzquierda
 	
 }
+
+object extensionArriba{
+	
+	var coordenadaX
+	var coordenadaY 
+	var logoExtensionDerecha = "extension_arriba1.png"
+	
+	method position() = game.at(coordenadaX, coordenadaY)
+	method image() = logoExtensionDerecha
+}
+
+
+

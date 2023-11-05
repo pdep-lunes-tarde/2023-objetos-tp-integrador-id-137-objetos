@@ -6,7 +6,7 @@ import cartaVacia.*
 class PortaCarta {
 	
 	const logoPortaCarta = "espacio.png" //ES temporal para que no grite
-	var property cartaPortada 
+	var cartaPortada 
 	const coordenadaX
 	const coordenadaY
 	

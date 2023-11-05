@@ -55,7 +55,7 @@ class Mazo {
 			
 		return new CartaNueva(logoCarta = "carta9.png", sangreCarta = 4, fuerza = 4, salud = 8)
 			
-		}else{ // retorna CANGURO
+		}else{ // retorna COYOTE
 			
 		return new CartaNueva(logoCarta = "carta10.png", sangreCarta = 2, fuerza = 3, salud = 3)
 			
