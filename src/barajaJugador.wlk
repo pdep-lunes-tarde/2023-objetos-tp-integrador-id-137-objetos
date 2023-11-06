@@ -88,13 +88,9 @@ object barajaJugador {
 
 			
 			posicionAnterior.eliminarCarta()
-			posicionAnterior.setCartaPortada(posicionActual.getCartaPortada())
-			posicionActual.eliminarCarta()
-			posicionAnterior.dibujarCarta()
-			posicionActual.setCartaPortada(posicionSiguiente.getCartaPortada())
-			posicionSiguiente.eliminarCarta()
-			posicionActual.dibujarCarta()
-				
+			posicionActual.pasarCartaA(posicionAnterior)
+			posicionSiguiente.pasarCartaA(posicionActual)
+
 			if(cartasDisponibles.size() == selector+2){
 				if(game.hasVisual(posicionSiguiente))
 					game.removeVisual(posicionSiguiente)
@@ -175,3 +171,16 @@ object extensionIzquierda{
 	method image() = logoExtensionIzquierda
 	
 }
+
+object extensionArriba{
+	
+	var coordenadaX
+	var coordenadaY 
+	var logoExtensionDerecha = "extension_arriba1.png"
+	
+	method position() = game.at(coordenadaX, coordenadaY)
+	method image() = logoExtensionDerecha
+}
+
+
+

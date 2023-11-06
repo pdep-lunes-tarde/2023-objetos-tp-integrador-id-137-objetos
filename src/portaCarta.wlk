@@ -13,6 +13,12 @@ class PortaCarta {
 	method position() = game.at(coordenadaX, coordenadaY)
 	method image() = logoPortaCarta
 	
+	method pasarCartaA(otroPortaCartas) {
+		otroPortaCartas.setCartaPortada(self.getCartaPortada())
+		self.eliminarCarta()
+		otroPortaCartas.dibujarCarta()
+	}
+	
 	method dibujarCarta(){
 		
 		cartaPortada.setCoordenadas(coordenadaX, coordenadaY)
@@ -20,7 +26,6 @@ class PortaCarta {
 	}
 	
 	method eliminarCarta(){
-		
 		game.removeVisual(cartaPortada)
 	}
 	
