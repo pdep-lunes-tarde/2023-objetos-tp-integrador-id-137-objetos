@@ -4,6 +4,7 @@ import wollok.game.*
 import cartaNueva.*
 import barajaJugador.extensionDerecha
 import barajaJugador.extensionIzquierda
+import barajaJugador.extensionArriba
 
 object barajaJugador {
 	
@@ -12,7 +13,7 @@ object barajaJugador {
 	const coordenadaY = 1
 	const separacion = 4
 		
-	var cartasDisponibles = [new CartaNueva(logoCarta = "carta1.png", sangreCarta = 1, fuerza = 1, salud = 1),new CartaNueva(logoCarta = "carta2.png", sangreCarta = 1, fuerza = 1, salud = 1),new CartaNueva(logoCarta = "carta1.png", sangreCarta = 1, fuerza = 1, salud = 1)]
+	var cartasDisponibles = [new CartaNueva(logoCarta = "carta1.png", sangreCarta = 1, fuerza = 1, salud = 1)]
 	
 	//Esto estaría bueno separarlo en otro objeto
 		
@@ -95,8 +96,8 @@ object barajaJugador {
 			posicionActual.dibujarCarta()
 				
 			if(cartasDisponibles.size() == selector+2){
-				
-				game.removeVisual(posicionSiguiente)
+				if(game.hasVisual(posicionSiguiente))
+					game.removeVisual(posicionSiguiente)
 				posicionSiguiente.setCartaPortada(cartaVacia)
 				posicionSiguiente.dibujarCarta()
 			}else{
