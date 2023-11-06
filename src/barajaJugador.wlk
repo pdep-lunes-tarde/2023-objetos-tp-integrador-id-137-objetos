@@ -13,7 +13,7 @@ object barajaJugador {
 	const coordenadaY = 1
 	const separacion = 4
 		
-	var cartasDisponibles = [new CartaNueva(logoCarta = "carta1.png", sangreCarta = 1, fuerza = 1, salud = 1)]
+	var cartasDisponibles = []
 	
 	//Esto estaría bueno separarlo en otro objeto
 		
@@ -86,7 +86,6 @@ object barajaJugador {
 			var posicionActual = barajaVisible.get(1)
 			var posicionSiguiente = barajaVisible.get(2)
 
-			
 			posicionAnterior.eliminarCarta()
 			posicionActual.pasarCartaA(posicionAnterior)
 			posicionSiguiente.pasarCartaA(posicionActual)

@@ -7,3 +7,5 @@
 - Agregar las imágenes de la vida y el daño
 	Aclaración importante: Si se incluye la lógica en "dibujarCarta" se agrega en todas partes
 	
+-Agregar selector debajo de baraja de cartas Jugador
+	
