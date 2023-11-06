@@ -17,15 +17,27 @@ class Mano {
 		
 			var primeraPosicion = cartasEnMano.get(0)
 			game.addVisual(primeraPosicion)
+			var miCarta1 = new CartaNueva(logoCarta = "lugarParaTirarCartas.png", sangreCarta = 0, fuerza = 0, salud = 0)
+			primeraPosicion.setCartaPortada(miCarta1)
+			primeraPosicion.dibujarCarta()
 			
 			var segundaPosicion = cartasEnMano.get(1)
 			game.addVisual(segundaPosicion)
+			var miCarta2 = new CartaNueva(logoCarta = "lugarParaTirarCartas.png", sangreCarta = 0, fuerza = 0, salud = 0)
+			segundaPosicion.setCartaPortada(miCarta2)
+			segundaPosicion.dibujarCarta()
 			
 			var terceraPosicion = cartasEnMano.get(2)
 			game.addVisual(terceraPosicion)
+			var miCarta3 = new CartaNueva(logoCarta = "lugarParaTirarCartas.png", sangreCarta = 0, fuerza = 0, salud = 0)
+			terceraPosicion.setCartaPortada(miCarta3)
+			terceraPosicion.dibujarCarta()
 			
 			var cuartaPosicion = cartasEnMano.get(3)
-			game.addVisual(cuartaPosicion)			
+			game.addVisual(cuartaPosicion)
+			var miCarta4 = new CartaNueva(logoCarta = "lugarParaTirarCartas.png", sangreCarta = 0, fuerza = 0, salud = 0)
+		    cuartaPosicion.setCartaPortada(miCarta4)
+			cuartaPosicion.dibujarCarta()	
 		}
 		
 	

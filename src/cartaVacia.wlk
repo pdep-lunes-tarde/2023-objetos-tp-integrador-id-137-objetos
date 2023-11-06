@@ -5,7 +5,7 @@ object cartaVacia {
 
 	var fuerza = 0
 	var property salud = 0
-	const logoCarta = "espacio.png"
+	const logoCarta = "lugarParaTirarCartas.png"
 	var logoSalud = ""
 	var sangreCarta = 0
 	

@@ -9,7 +9,7 @@ class Selector {
 	const coordenadaInicialY // Se utiliza para dibujar (NO BORRAR)
 	var posicionActualX = coordenadaInicialX
 	var desplazamiento //Nota siempre se mueve horizotalmente
-	const logoSelector = "espacio.png" // agregar
+	const logoSelector = "extension_arriba1.png" // agregar
 
 	method position() = game.at(posicionActualX, coordenadaInicialY)
 	method image() = logoSelector

@@ -4,7 +4,6 @@ import wollok.game.*
 import cartaNueva.*
 import barajaJugador.extensionDerecha
 import barajaJugador.extensionIzquierda
-import barajaJugador.extensionArriba
 
 object barajaJugador {
 	
@@ -13,7 +12,7 @@ object barajaJugador {
 	const coordenadaY = 1
 	const separacion = 4
 		
-	var cartasDisponibles = [new CartaNueva(logoCarta = "carta1.png", sangreCarta = 1, fuerza = 1, salud = 1)]
+	var cartasDisponibles = [new CartaNueva(logoCarta = "carta1.png", sangreCarta = 1, fuerza = 1, salud = 1),new CartaNueva(logoCarta = "carta2.png", sangreCarta = 1, fuerza = 1, salud = 1),new CartaNueva(logoCarta = "carta1.png", sangreCarta = 1, fuerza = 1, salud = 1)]
 	
 	//Esto estaría bueno separarlo en otro objeto
 		
@@ -36,6 +35,11 @@ object barajaJugador {
 			}
 			
 			if(cartasDisponibles.size() >=2){
+				
+				var posicionActual = barajaVisible.get(1)
+				posicionActual.eliminarCarta()
+				game.removeVisual(posicionActual)
+				
 				var posicionSiguiente = barajaVisible.get(2)
 				posicionSiguiente.eliminarCarta()
 				game.removeVisual(posicionSiguiente)
@@ -60,6 +64,11 @@ object barajaJugador {
 			}
 			
 			if(cartasDisponibles.size() >=2){
+					var posicionActual = barajaVisible.get(1)
+				posicionActual.setCartaPortada(cartasDisponibles.get(0))
+				game.addVisual(posicionActual)
+				posicionActual.dibujarCarta()
+				
 				var posicionSiguiente = barajaVisible.get(2)
 				posicionSiguiente.setCartaPortada(cartasDisponibles.get(1))
 				game.addVisual(posicionSiguiente)
@@ -87,7 +96,7 @@ object barajaJugador {
 				
 			if(cartasDisponibles.size() == selector+2){
 				
-				//game.removeVisual(posicionSiguiente)
+				game.removeVisual(posicionSiguiente)
 				posicionSiguiente.setCartaPortada(cartaVacia)
 				posicionSiguiente.dibujarCarta()
 			}else{
@@ -165,16 +174,3 @@ object extensionIzquierda{
 	method image() = logoExtensionIzquierda
 	
 }
-
-object extensionArriba{
-	
-	var coordenadaX
-	var coordenadaY 
-	var logoExtensionDerecha = "extension_arriba1.png"
-	
-	method position() = game.at(coordenadaX, coordenadaY)
-	method image() = logoExtensionDerecha
-}
-
-
-
