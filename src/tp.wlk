@@ -56,4 +56,5 @@ object nada{
 	method contiene(){}
 	method marcar(){}
 	method desmarcar(){}
+	method salud(){}
 }

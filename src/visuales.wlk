@@ -1,6 +1,7 @@
 import tp.*
 import wollok.game.*
 import puntaje.*
+import mesa.*
 
 class ObjetoVisual{ 
 	var coordX
@@ -55,3 +56,43 @@ object puntajeDisplay inherits ObjetoVisual(coordX = 10, coordY = 6, image = "5v
 		}
 	}
 }
+
+//estos espacios solo se usan para el display de cartas
+
+const cartaAnterior = new Espacio(coordX = 2, coordY = 1)
+const cartaActual = new Espacio(coordX = 6, coordY = 1)
+const cartaSiguiente = new Espacio(coordX = 10, coordY = 1)
+
+
+//La clase sirve para representar gráficamente la salud variable de las cartas contenidas en un espacio
+class SaludDisplay inherits ObjetoVisual{
+	method actualizar(salud){
+		if(salud <= 1){
+			image = "1salud.png"
+		}
+		if(salud  == 2){
+			image = "2salud.png"
+		}
+		if(salud  == 3){
+			image = "3salud.png"
+		}
+		if(salud  == 4){
+			image = "4salud.png"
+		}
+		if(salud  == 5){
+			image = "5salud.png"
+		}
+		if(salud  == 6){
+			image = "salud.png"
+		}
+		if(salud  == 7){
+			image = "7salud.png"
+		}
+		if(salud  == 8){
+			image = "8salud.png"
+		}
+		if(salud  == 9){
+			image = "9salud.png"
+		}
+	}
+} 

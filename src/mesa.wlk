@@ -15,15 +15,27 @@ class Espacio{
 	const property coordX
 	const property coordY
 	var property contiene = nada
+	const iconoSalud = new SaludDisplay(coordX = (coordX+2), coordY = coordY, image = "0salud.png")
 	
 	method ponerCarta(carta){
 		contiene = carta 
-		game.addVisual(self)
+		self.graficar()
 	}
 	
 	method removerCarta(){
-		game.removeVisual(self)
+		self.borrar()
 		contiene = nada
+	}
+	
+	method graficar(){
+		game.addVisual(self)
+		iconoSalud.actualizar(contiene.salud())
+		game.addVisual(iconoSalud)
+	}
+	
+	method borrar(){
+		game.removeVisual(self)
+		game.removeVisual(iconoSalud)
 	}
 	
 	method position() = game.at(coordX,coordY)
@@ -54,17 +66,23 @@ class EspacioCombate inherits Espacio{
 	override method ponerCarta(carta){
 		contiene = carta 
 		carta.cambiarObjetivo(opuesto)
-		game.addVisual(self)
+		self.graficar()
 	}
 	
 	override method removerCarta(){
-		game.removeVisual(self)
+		self.borrar()
 		contiene = protege
 	}
 	
 	method recibirDanio(cantidad){
 		contiene.recibirDanio(cantidad)
+		if(self.contieneUnaCarta()){
+			if(contiene.salud() <= 0) {self.removerCarta()}
+			else {iconoSalud.actualizar(contiene.salud())}
+		}	
 	}
+	
+	method contieneUnaCarta() = contiene != vidaJugador and contiene != vidaOponente
 }
 
 //falta modelar los espacios espaciales de las cartas que va a bajar la máquina (c)
@@ -76,9 +94,3 @@ const b1 = new EspacioCombate (contiene = vidaOponente, opuesto = a1, coordX = 1
 const b2 = new EspacioCombate (contiene = vidaOponente, opuesto = a2, coordX = 21, coordY = 6)
 const b3 = new EspacioCombate (contiene = vidaOponente, opuesto = a3, coordX = 25, coordY = 6)
 const b4 = new EspacioCombate (contiene = vidaOponente, opuesto = a4, coordX = 29, coordY = 6)
-
-//estos espacios solo se usan para el display de cartas
-
-const cartaAnterior = new Espacio (coordX = 2, coordY = 1)
-const cartaActual = new Espacio (coordX = 6, coordY = 1)
-const cartaSiguiente = new Espacio (coordX = 10, coordY = 1)

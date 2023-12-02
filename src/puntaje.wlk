@@ -18,7 +18,8 @@ class Puntaje{
 	
 	//métodos que no deberían usarse, pero evitan errores 
 	method cambiarObjetivo(_){}
-	method image (){}
+	method image(){}
+	method salud() = 0
 }
 
 const vidaJugador = new Puntaje(oponente = vidaOponente)

@@ -120,7 +120,6 @@ object selectorMesa inherits Selector(
 				abono.add(seleccion)
 				self.verificarPago()
 			} 
-			
 		}
 	}
 	
