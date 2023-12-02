@@ -44,7 +44,9 @@ object seleccionarEspacio{
 	
 	method espacio(){}
 	
-	method abajo(){}
+	method abajo(){
+		selectorMesa.finalizar()
+	}
 }
 //--------------------------------------
 

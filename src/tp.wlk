@@ -25,6 +25,7 @@ object juego{
 		//provisional------------
 		
 		mano.robar(mazoAbono)
+		mano.robar(mazoAbono)
 		mano.robar(mazoPrincipal)
 		mano.robar(mazoPrincipal)
 		mano.robar(mazoPrincipal)

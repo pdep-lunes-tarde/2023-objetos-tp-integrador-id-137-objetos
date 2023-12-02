@@ -35,9 +35,20 @@ class EspacioCombate inherits Espacio{
 	const property opuesto
 	const property protege = contiene
 	var property estaMarcado = false
+	const marca = new ObjetoVisual(image = "marca.png", coordX = (coordX + 1), coordY = (coordY + 1))
 	
 	method atacar(){
 		contiene.atacar()
+	}
+	
+	method marcar(){
+		estaMarcado = true
+		game.addVisual(marca)
+	}
+	
+	method desmarcar(){
+		estaMarcado = false
+		game.removeVisual(marca)
 	}
 	
 	override method ponerCarta(carta){

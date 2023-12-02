@@ -3,7 +3,6 @@ import mesa.*
 import fases.*
 import puntaje.*
 import tp.*
-import mano.*
 import visuales.*
 import mazos.*
 
@@ -53,7 +52,7 @@ object mano inherits Selector(
 	
 	
 	method bajarCartaElegida(espacio){
-			espacio.ponerCarta(seleccion) //tira este error pero funciona hm
+			espacio.ponerCarta(seleccion) 
 			self.borrarDisplay()
 			elementos.remove(seleccion)
 			if(posicionSeleccion > 0) posicionSeleccion--
@@ -84,8 +83,6 @@ object mano inherits Selector(
 		if(posicionSeleccion + 2 < self.tamanio()) game.removeVisual(extensionDerecha)
 	}
 	
-	
-	//hay que implementar el mazo
 	method robar(mazo){
 		const carta = mazo.sacarUnaCarta()
 		self.borrarDisplay()
@@ -104,26 +101,56 @@ object selectorMesa inherits Selector(
 	seleccion = a1){
 	const property image = "selector.png"
 	const coordY = 0
+	const abono = []
+	var property costoPagado = false
 	
 	method elegir(){
-		if(seleccion.contiene() == vidaJugador){
-		mano.bajarCartaElegida(seleccion)
-		self.finalizar()
+		self.verificarPago()
+		
+		if(self.sePuedeBajar()){
+			mano.bajarCartaElegida(seleccion)
+			self.finalizar()
+		}else
+		if(self.sePuedeSacrificar()){
+			if(seleccion.estaMarcado()){
+				seleccion.desmarcar()
+				abono.remove(seleccion)
+			}else{
+				seleccion.marcar()
+				abono.add(seleccion)
+				self.verificarPago()
+			} 
+			
 		}
 	}
-
-	method sacrificar(){
-		if(seleccion == vidaJugador){} else 
-		if(seleccion.estaMarcada()){seleccion.desmarcar()}else
-		seleccion.marcar()
+	
+	method verificarPago(){
+		if(self.fertilizanteDisponible() >= mano.seleccion().costo()){
+			costoPagado = true
+			self.sacrificarCartas()
+			self.vaciarAbono()
+		} 
 	}
-
+	
+	method sacrificarCartas(){
+		abono.forEach({espacio => espacio.removerCarta()})
+	}
+	
+	method vaciarAbono(){
+		abono.forEach({espacio => espacio.desmarcar()})
+		abono.clear()
+	}
+	
+	//-------------------------visuales
 	method iniciar(){
 		self.actualizarDisplay()
+		self.verificarPago()
 	}
 	
 	method finalizar(){
+		costoPagado = false
 		self.borrarDisplay()
+		self.vaciarAbono()
 		juego.cambiarFase(faseMano)
 	}
 	
@@ -135,6 +162,10 @@ object selectorMesa inherits Selector(
 		game.removeVisual(self)
 	}
 	
+	//-------------------------consultas
+	method fertilizanteDisponible() = abono.sum({sacrificio => sacrificio.contiene().fertilidad()}) 
+	method sePuedeSacrificar() = !(seleccion.contiene() == vidaJugador) and !costoPagado
+	method sePuedeBajar() = seleccion.contiene() == vidaJugador and costoPagado
 	method position() = game.at(seleccion.coordX(), coordY)
 }
 
