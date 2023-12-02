@@ -1,30 +1,18 @@
 import wollok.game.*
+import cartas.*
+import fases.*
+import mesa.*
 import visuales.*
-import manoEnemigo.*
 import puntaje.*
- 
-//Imports Nuevos
-import fasesNueva.*
-import selector.*
-
+import selectores.*
 
 object juego{
-	
 	var fase
 	
 	method jugar() {
-		
 		self.iniciarMesa()
 		
-	/* Codigo de Tefa nuevo no tocar por ahora Gracias :D
-	 * 
-	 */
-		
-		
-		
-	/* Fin de codigo de Tefa. Gracias por no tocar :D
-	 * 
-	 */
+		fase = faseMano
 		
 		keyboard.space().onPressDo {fase.espacio()} 
 		keyboard.right().onPressDo {fase.derecha()}
@@ -33,9 +21,13 @@ object juego{
 		keyboard.down().onPressDo {fase.abajo()}
 		
 		//provisional------------
-		fase = faseMazos
-		
-			
+	
+		mano.robar(generadorDeCartas.fotocopiar(carta1))
+		mano.robar(generadorDeCartas.fotocopiar(carta2))
+		mano.robar(generadorDeCartas.fotocopiar(carta3))
+		mano.robar(generadorDeCartas.fotocopiar(carta2))
+		mano.robar(generadorDeCartas.fotocopiar(carta3))
+		mano.robar(generadorDeCartas.fotocopiar(carta1))
 		//-----------------------
 		
 		game.start()
@@ -47,15 +39,19 @@ object juego{
 		game.cellSize(50)
 		game.addVisual(fondo)
 		game.addVisual(puntajeDisplay)
-		
-		faseMazos.dibujarFase()
-		faseBarajaJugador.dibujarFase()
-		faseManoJugador.dibujarFase()
-		manoEnemigo.dibujarInicial() //Notese q no es una fase
-		
 	}
 	
 	method cambiarFase(_fase){
 		fase = _fase
 	}
+}
+
+object nada{
+	method recibirDanio(valor){}					
+	method ponerCarta(){}							//Este amigo va a encargarse de recibir casi todos los  
+	method cambiarObjectivo(objetivo){}				//mensajes que no deberían tener efecto ni respuesta
+	method image(){}
+	method contiene(){}
+	method marcar(){}
+	method desmarcar(){}
 }
