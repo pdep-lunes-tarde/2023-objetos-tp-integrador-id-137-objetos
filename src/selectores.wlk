@@ -5,10 +5,12 @@ import puntaje.*
 import tp.*
 import mano.*
 import visuales.*
+import mazos.*
 
+//--------------------------------------------------------------------------------------------------------Implementación general de los selectores
 class Selector{
 	const property elementos
-	var property posicionSeleccion = 0 //después le puedo sacar el property
+	var property posicionSeleccion = 0 //después le puedo sacar el property, está puesto para probar cosas
 	var property seleccion = nada
 	
 	method siguiente(){
@@ -37,7 +39,7 @@ class Selector{
 	method actualizarDisplay(){}
 }
 
-//Selector que interactúa con las cartas de la mano
+//--------------------------------------------------------------------------------------------------------Selector que interactúa con las cartas de la mano
 
 object mano inherits Selector(
 	elementos = []){
@@ -84,7 +86,8 @@ object mano inherits Selector(
 	
 	
 	//hay que implementar el mazo
-	method robar(carta){
+	method robar(mazo){
+		const carta = mazo.sacarUnaCarta()
 		self.borrarDisplay()
 		elementos.add(carta)
 		self.nuevaSeleccion()
@@ -94,7 +97,7 @@ object mano inherits Selector(
 }
 
 
-//Selector que interactúa con la mesa
+//--------------------------------------------------------------------------------------------------------Selector que interactúa con la mesa
 
 object selectorMesa inherits Selector(
 	elementos = [a1, a2, a3, a4],
@@ -135,5 +138,5 @@ object selectorMesa inherits Selector(
 	method position() = game.at(seleccion.coordX(), coordY)
 }
 
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 

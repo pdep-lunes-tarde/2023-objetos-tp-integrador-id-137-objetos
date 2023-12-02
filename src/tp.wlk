@@ -5,12 +5,14 @@ import mesa.*
 import visuales.*
 import puntaje.*
 import selectores.*
+import mazos.*
 
 object juego{
 	var fase
 	
 	method jugar() {
 		self.iniciarMesa()
+		mazoPrincipal.inicializarMazo()
 		
 		fase = faseMano
 		
@@ -21,13 +23,12 @@ object juego{
 		keyboard.down().onPressDo {fase.abajo()}
 		
 		//provisional------------
-	
-		mano.robar(generadorDeCartas.fotocopiar(carta1))
-		mano.robar(generadorDeCartas.fotocopiar(carta2))
-		mano.robar(generadorDeCartas.fotocopiar(carta3))
-		mano.robar(generadorDeCartas.fotocopiar(carta2))
-		mano.robar(generadorDeCartas.fotocopiar(carta3))
-		mano.robar(generadorDeCartas.fotocopiar(carta1))
+		
+		mano.robar(mazoAbono)
+		mano.robar(mazoPrincipal)
+		mano.robar(mazoPrincipal)
+		mano.robar(mazoPrincipal)
+		
 		//-----------------------
 		
 		game.start()
