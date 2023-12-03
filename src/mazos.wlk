@@ -18,7 +18,7 @@ class Mazo inherits ObjetoVisual{
 	}
 	
 	method aniadirUnaCarta(carta){
-		cartas.add(carta)
+		cartas.add(generadorDeCartas.fotocopiar(carta))
 	}
 	
 	method estaVacio() = cartas.isEmpty()
@@ -33,12 +33,26 @@ object mazoPrincipal inherits Mazo(
 
 	method inicializar(){
 		cartas.clear()
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta1)) //hardcodeado por tiempo
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta1))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta2))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta2))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta3))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta3))
+		self.aniadirUnaCarta(girasol)
+		self.aniadirUnaCarta(girasol)
+		self.aniadirUnaCarta(girasol)
+		self.aniadirUnaCarta(yuyo)
+		self.aniadirUnaCarta(carnivora)
+		self.aniadirUnaCarta(carnivora)
+		self.aniadirUnaCarta(arbol)
+		self.aniadirUnaCarta(bonsai)
+		self.aniadirUnaCarta(bonsai)
+		self.aniadirUnaCarta(bonsai)
+		self.aniadirUnaCarta(abono)
+		self.aniadirUnaCarta(abono)
+		self.aniadirUnaCarta(tronco)
+		self.aniadirUnaCarta(tronco)
+		self.aniadirUnaCarta(orejaDeElefante)
+		self.aniadirUnaCarta(cactus)
+		self.aniadirUnaCarta(termitas)
+		self.aniadirUnaCarta(termitas)
+		self.aniadirUnaCarta(suculenta)
+		self.aniadirUnaCarta(suculenta)
 	}
 }
 
@@ -50,15 +64,25 @@ object mazoAbono inherits Mazo(
 		
 	method inicializar(){
 		cartas.clear()
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta4)) //hardcodeado por tiempo
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta4))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta4))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta4))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta4))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta4))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta4))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta4))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta4))
-		self.aniadirUnaCarta(generadorDeCartas.fotocopiar(carta4))
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(brote)
+		self.aniadirUnaCarta(yuyo)
+		self.aniadirUnaCarta(abono)
+	}
+}
+
+object hojasDeSuculenta{
+	method tieneCartas() = true
+	method sacarUnaCarta(){
+		return generadorDeCartas.fotocopiar(hojaDeSuculenta)
 	}
 }

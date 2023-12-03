@@ -1,4 +1,7 @@
 import visuales.*
+import wollok.game.*
+import tp.*
+import fases.*
 
 class Puntaje{
 	var property vida = 5
@@ -25,11 +28,13 @@ class Puntaje{
 const vidaJugador = new Puntaje(oponente = vidaOponente)
 const vidaOponente = new Puntaje(oponente = vidaJugador)
 
-object puntajeDisplay inherits ObjetoVisual(coordX = 10, coordY = 6, image = "5vida.png") {
+object puntajeDisplay inherits ObjetoVisual(coordX = 11, coordY = 6, image = "5vida.png") {
 
 	method actualizar(){
 		if(vidaJugador.vida() <= 1){
 			image = "1vida.png"
+			game.addVisual(mensajeDerrota)
+			juego.cambiarSemiFase(faseFinal)
 		}
 		if(vidaJugador.vida() == 2){
 			image = "2vida.png"
@@ -57,6 +62,8 @@ object puntajeDisplay inherits ObjetoVisual(coordX = 10, coordY = 6, image = "5v
 		}
 		if(vidaJugador.vida() >= 10){
 			image = "10vida.png"
+			game.addVisual(mensajeVictoria)
+			juego.cambiarSemiFase(faseFinal)
 		}
 	}
 }

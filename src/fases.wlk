@@ -10,169 +10,196 @@ import mazos.*
 
 //las fases se van a encargar de determinar qué acción tiene que tener cada imput en cada momento
 
+class Fase{
+	method accionDeInicio(){}
+	method izquierda(){}
+	method derecha(){}
+	method arriba(){}
+	method espacio(){}
+	method abajo(){}
+	method i(){
+		infoControles.suspenderFase()
+	}
+}
+
+
 //--------------------------------------
 
-	object faseRobar{
-	method accionDeInicio(){
-		game.addVisual(flechaIzquierda)
-		game.addVisual(flechaDerecha)
-		if(mazoAbono.estaVacio() and mazoPrincipal.estaVacio()){
+	object faseRobar inherits Fase{
+		override method accionDeInicio(){
+			game.addVisual(flechaIzquierda)
+			game.addVisual(flechaDerecha)
+			if(mazoAbono.estaVacio() and mazoPrincipal.estaVacio()){
 			self.terminarFase()
 		}
 	}
 	
-	method izquierda(){
+	override method izquierda(){
 		if(mazoPrincipal.tieneCartas()){
 			mano.robar(mazoPrincipal)
 			self.terminarFase()
 		}
 	}
 	
-	method derecha(){
+	override method derecha(){
 		if(mazoAbono.tieneCartas()){
 			mano.robar(mazoAbono)
 			self.terminarFase()
 		}
 	}
 	
-	method arriba(){}
-	
-	method espacio(){}
-	
-	method abajo(){}
+	override method espacio(){
+		game.addVisual(indicadorMano)
+		juego.cambiarSemiFase(verManoDuranteRobo)
+	}
 	
 	method terminarFase(){
 		game.removeVisual(flechaIzquierda)
 		game.removeVisual(flechaDerecha)
 		juego.cambiarFase(faseMano)
 	}
+	
+	method controles() = "controlesRobar.png"
 }
 
 //--------------------------------------
-object faseMano{
-	method accionDeInicio(){
-		game.addVisual(indicadorMano)
-	}
-	
-	method izquierda(){
+
+object verManoDuranteRobo inherits Fase{
+
+	override method izquierda(){
 		mano.anterior()
 	}
 	
-	method derecha(){
+	override method derecha(){
 		mano.siguiente()
 	}
 	
-	method arriba(){
+	override method arriba(){}
+	
+	override method espacio(){
+		game.removeVisual(indicadorMano)
+		juego.cambiarSemiFase(faseRobar)
+	}
+	
+	method controles() = "controlesVerManoDuranteRobo.png"
+}
+
+//--------------------------------------
+
+object faseMano inherits Fase{
+	override method accionDeInicio(){
+		game.addVisual(indicadorMano)
+	}
+	
+	override method izquierda(){
+		mano.anterior()
+	}
+	
+	override method derecha(){
+		mano.siguiente()
+	}
+	
+	override method arriba(){
 		mano.elegir()
 	}
 	
-	method espacio(){
+	override method espacio(){
 		game.removeVisual(indicadorMano)
 		juego.cambiarFase(jugadorAtaca)
 	}
 	
-	method abajo(){}
+	method controles() = "controlesMano.png"
 }
 //--------------------------------------
 
-object seleccionarEspacio{				
-	method accionDeInicio(){}
+object seleccionarEspacio inherits Fase{				
 	
-	method derecha(){					
+	override method derecha(){					
 		selectorMesa.siguiente()	
 	}
 	
-	method izquierda(){
+	override method izquierda(){
 		selectorMesa.anterior()
 	}
 	
-	method arriba(){
+	override method arriba(){
 		selectorMesa.elegir()
 	}
 	
-	method espacio(){}
-	
-	method abajo(){
+	override method abajo(){
 		selectorMesa.finalizar()
 	}
+	
+	method controles() = "controlesMesa.png"
 }
 //--------------------------------------
 
-object jugadorAtaca{
-	method accionDeInicio(){
+object jugadorAtaca inherits Fase{
+	override method accionDeInicio(){
 		[a1,a2,a3,a4].forEach({espacio => espacio.atacar()})
 	}
-	
-	method derecha(){}
-	
-	method izquierda(){}
-	
-	method arriba(){}
-	
-	method espacio(){
+
+	override method espacio(){
 		juego.cambiarFase(oponenteAvanza)
 	}
 	
-	method abajo(){}
+	method controes() = "controlesFaseNoInteractiva.png"
 }
+
 //--------------------------------------
 
-object oponenteAvanza{
-	method accionDeInicio(){
+object oponenteAvanza inherits Fase{
+	override method accionDeInicio(){
 		if(oponente.noTieneCartasParaAvanzar()) {juego.cambiarFase(oponenteAtaca)}
 		else {oponente.avanzarCartas()}	
 	}
 	
-	method derecha(){}
-	
-	method izquierda(){}
-	
-	method arriba(){}
-	
-	method espacio(){
+	override method espacio(){
 		juego.cambiarFase(oponenteAtaca)
 	}
 	
-	method abajo(){}
+	method controes() = "controlesFaseNoInteractiva.png"
 }
 //--------------------------------------
 
-object oponenteAtaca{
-	method accionDeInicio(){
+object oponenteAtaca inherits Fase{
+	override method accionDeInicio(){
 		if(oponente.noTieneCartasParaAtacar()) {juego.cambiarFase(oponenteBajaCartas)}
 		else {oponente.atacar()}	
 	}
 	
-	method derecha(){}
-	
-	method izquierda(){}
-	
-	method arriba(){}
-	
-	method espacio(){
+	override method espacio(){
 		juego.cambiarFase(oponenteBajaCartas)
 	}
 	
-	method abajo(){}
+	method controes() = "controlesFaseNoInteractiva.png"
 }
 
 //--------------------------------------
 
 
-object oponenteBajaCartas{
-	method accionDeInicio(){
-		oponente.bajarCarta(generadorDeCartas.fotocopiar(carta1))	
+object oponenteBajaCartas inherits Fase{
+	override method accionDeInicio(){
+		oponente.bajarTurno()	
 	}
 	
-	method derecha(){}
-	
-	method izquierda(){}
-	
-	method arriba(){}
-	
-	method espacio(){
+	override method espacio(){
 		juego.cambiarFase(faseRobar)
 	}
 	
-	method abajo(){}
+	method controes() = "controlesFaseNoInteractiva.png"
+}
+
+//--------------------------------------
+
+object verControles inherits Fase{
+	 override method i(){
+	 	infoControles.volverAFase()
+	 }
+}
+
+//---------------------------------------
+
+object faseFinal inherits Fase{
+	override method i(){}
 }

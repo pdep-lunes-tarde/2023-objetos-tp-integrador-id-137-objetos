@@ -9,7 +9,7 @@ import mazos.*
 import oponente.*
 
 object juego{
-	var fase
+	var property fase
 	
 	method jugar() {
 		self.iniciarMesa()
@@ -19,15 +19,7 @@ object juego{
 		keyboard.left().onPressDo {fase.izquierda()}
 		keyboard.up().onPressDo {fase.arriba()}
 		keyboard.down().onPressDo {fase.abajo()}
-		
-		//provisional------------
-		
-		mano.robar(mazoAbono)
-		mano.robar(mazoPrincipal)
-		mano.robar(mazoPrincipal)
-		mano.robar(mazoPrincipal)
-		
-		//-----------------------
+		keyboard.i().onPressDo {fase.i()}
 		
 		game.start()
 	}
@@ -44,7 +36,17 @@ object juego{
 		game.addVisual(mazoAbono)
 		mazoPrincipal.inicializar()
 		mazoAbono.inicializar()
+		oponente.bajarTurno()
+		mano.robar(mazoPrincipal)
+		mano.robar(mazoPrincipal)
+		mano.robar(mazoPrincipal)
+		mano.robar(mazoPrincipal)
+		mano.robar(mazoPrincipal)
 		self.cambiarFase(faseRobar)
+	}
+	
+	method reiniciar(){
+		mano.elementos()
 	}
 	
 	method cambiarSemiFase(_fase){
@@ -67,4 +69,22 @@ object nada{
 	method marcar(){}
 	method desmarcar(){}
 	method salud(){}
+}
+
+object infoControles inherits ObjetoVisual(
+	coordX = 0,
+	coordY = 0,
+	image = "nada.png"){
+	var faseEnSuspenso = null
+	
+	method suspenderFase(){
+		faseEnSuspenso = juego.fase()
+		juego.cambiarSemiFase(verControles)
+		self.cambiarImagen(faseEnSuspenso.controles())
+		game.addVisual(self)
+	}
+	method volverAFase(){
+		game.removeVisual(self)
+		juego.cambiarSemiFase(faseEnSuspenso)
+	}	
 }

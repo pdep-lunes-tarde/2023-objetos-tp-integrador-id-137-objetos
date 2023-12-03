@@ -6,7 +6,7 @@ import mesa.*
 class ObjetoVisual{ 
 	var property coordX
 	var property coordY
-	var property image
+	var property image = "nada.png"
 	
 	method cambiarImagen(imagen){image = imagen}
 	method position() = game.at(coordX,coordY)	
@@ -52,19 +52,65 @@ class SaludDisplay inherits ObjetoVisual{
 			image = "5salud.png"
 		}
 		if(salud  == 6){
-			image = "salud.png"
+			image = "6salud.png"
 		}
 		if(salud  == 7){
 			image = "7salud.png"
 		}
-		if(salud  == 8){
-			image = "8salud.png"
+	}	 
+}
+
+class FuerzaDisplay inherits ObjetoVisual{
+	method actualizar(fuerza){
+		if(fuerza == 0){
+			image = "0fuerza.png"
 		}
-		if(salud  == 9){
-			image = "9salud.png"
+		if(fuerza == 1){
+			image = "1fuerza.png"
+		}
+		if(fuerza  == 2){
+			image = "2fuerza.png"
+		}
+		if(fuerza  == 3){
+			image = "3fuerza.png"
+		}
+		if(fuerza  == 4){
+			image = "4fuerza.png"
+		}
+		if(fuerza  == 5){
+			image = "5fuerza.png"
+		}
+		if(fuerza  == 6){
+			image = "fuerza.png"
+		}
+		if(fuerza  == 7){
+			image = "7fuerza.png"
+		}
+	} 
+}
+//La clase sirve para representar gráficamente la fuerza de una carta
+
+class CostoDisplay inherits ObjetoVisual{
+	method actualizar(costo){
+		if(costo == 0){
+			image = "nada.png"
+		}
+		if(costo == 1){
+			image = "1costo.png"
+		}
+		if(costo  == 2){
+			image = "2costo.png"
+		}
+		if(costo  == 3){
+			image = "3costo.png"
+		}
+		if(costo  == 4){
+			image = "4costo.png"
 		}
 	}
 } 
+
+//La clase sirve para representar gráficamente el costo de una carta
 
 //Indicador de fase
 
@@ -84,3 +130,8 @@ object indicadorDeFase inherits ObjetoVisual(
 	}
 	
 }
+
+//-------------------------Mensajes de juego terminado. Quizá no lo más pulido de todo.
+
+const mensajeVictoria = new ObjetoVisual(coordX = 17, coordY = 5, image = "mensajeVictoria.png")
+const mensajeDerrota = new ObjetoVisual(coordX = 17, coordY = 5, image = "mensajeDerrota.png")

@@ -50,7 +50,6 @@ object mano inherits Selector(
 		}
 	}
 	
-	
 	method bajarCartaElegida(espacio){
 			espacio.ponerCarta(seleccion) 
 			self.borrarDisplay()

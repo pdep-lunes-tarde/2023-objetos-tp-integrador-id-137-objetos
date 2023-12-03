@@ -15,7 +15,9 @@ class Espacio{
 	const property coordX
 	const property coordY
 	var property contiene = nada
-	const iconoSalud = new SaludDisplay(coordX = (coordX+2), coordY = coordY, image = "0salud.png")
+	const iconoSalud = new SaludDisplay(coordX = (coordX+2), coordY = coordY)
+	const iconoFuerza = new FuerzaDisplay(coordX = coordX, coordY = coordY)
+	const iconoCosto = new CostoDisplay(coordX = (coordX+2), coordY = (coordY+3))
 	
 	method ponerCarta(carta){
 		contiene = carta 
@@ -30,12 +32,18 @@ class Espacio{
 	method graficar(){
 		game.addVisual(self)
 		iconoSalud.actualizar(contiene.salud())
+		iconoFuerza.actualizar(contiene.fuerza())
+		iconoCosto.actualizar(contiene.costo())
 		game.addVisual(iconoSalud)
+		game.addVisual(iconoFuerza)
+		game.addVisual(iconoCosto)
 	}
 	
 	method borrar(){
 		game.removeVisual(self)
 		game.removeVisual(iconoSalud)
+		game.removeVisual(iconoFuerza)
+		game.removeVisual(iconoCosto)
 	}
 	
 	method estaLibre() = contiene == nada
