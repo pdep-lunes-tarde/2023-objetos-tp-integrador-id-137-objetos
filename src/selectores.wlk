@@ -45,7 +45,7 @@ object mano inherits Selector(
 	  
 	method elegir(){
 		if(!elementos.isEmpty()){
-			juego.cambiarFase(seleccionarEspacio)
+			juego.cambiarSemiFase(seleccionarEspacio)
 			selectorMesa.iniciar()
 		}
 	}
@@ -84,10 +84,12 @@ object mano inherits Selector(
 	}
 	
 	method robar(mazo){
-		const carta = mazo.sacarUnaCarta()
-		self.borrarDisplay()
-		elementos.add(carta)
-		self.nuevaSeleccion()
+		if(mazo.tieneCartas()){
+			const carta = mazo.sacarUnaCarta()
+			self.borrarDisplay()
+			elementos.add(carta)
+			self.nuevaSeleccion()
+		}
 	}
 	
 	method tamanio() = elementos.size()
@@ -150,7 +152,7 @@ object selectorMesa inherits Selector(
 		costoPagado = false
 		self.borrarDisplay()
 		self.vaciarAbono()
-		juego.cambiarFase(faseMano)
+		juego.cambiarSemiFase(faseMano)
 	}
 	
 	override method actualizarDisplay(){
@@ -168,5 +170,5 @@ object selectorMesa inherits Selector(
 	method position() = game.at(seleccion.coordX(), coordY)
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------Selector que interactúa con los mazos
 

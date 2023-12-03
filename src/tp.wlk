@@ -6,15 +6,13 @@ import visuales.*
 import puntaje.*
 import selectores.*
 import mazos.*
+import oponente.*
 
 object juego{
 	var fase
 	
 	method jugar() {
 		self.iniciarMesa()
-		mazoPrincipal.inicializarMazo()
-		
-		fase = faseMano
 		
 		keyboard.space().onPressDo {fase.espacio()} 
 		keyboard.right().onPressDo {fase.derecha()}
@@ -24,7 +22,6 @@ object juego{
 		
 		//provisional------------
 		
-		mano.robar(mazoAbono)
 		mano.robar(mazoAbono)
 		mano.robar(mazoPrincipal)
 		mano.robar(mazoPrincipal)
@@ -41,10 +38,23 @@ object juego{
 		game.cellSize(50)
 		game.addVisual(fondo)
 		game.addVisual(puntajeDisplay)
+		game.addVisual(fases)
+		game.addVisual(indicadorDeFase)
+		game.addVisual(mazoPrincipal)
+		game.addVisual(mazoAbono)
+		mazoPrincipal.inicializar()
+		mazoAbono.inicializar()
+		self.cambiarFase(faseRobar)
+	}
+	
+	method cambiarSemiFase(_fase){
+		fase = _fase
 	}
 	
 	method cambiarFase(_fase){
 		fase = _fase
+		fase.accionDeInicio()
+		indicadorDeFase.siguiente()
 	}
 }
 
